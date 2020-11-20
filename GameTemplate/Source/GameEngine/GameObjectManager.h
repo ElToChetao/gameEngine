@@ -46,6 +46,7 @@ public:
 		{
 			printf("Failed to load dot texture!\n");
 		}
+		start();
 	}
 	void translate(Vector2 offset) {
 		transform.position += offset;
@@ -54,6 +55,12 @@ public:
 		texture.render(transform.position.x, transform.position.y);
 	}
 	void update() {
+
+	}
+	void start() {
+
+	}
+	void destroy() {
 
 	}
 };
