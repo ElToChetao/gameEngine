@@ -1,7 +1,1 @@
-﻿  main.cpp
-     Creating library C:\Users\erniu\Downloads\GameTemplate\Projects\Release\Game.lib and object C:\Users\erniu\Downloads\GameTemplate\Projects\Release\Game.exp
-  Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 109 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Game.vcxproj -> C:\Users\erniu\Downloads\GameTemplate\Projects\Release\Game.exe
+﻿  Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe

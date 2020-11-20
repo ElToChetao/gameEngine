@@ -38,7 +38,7 @@
     <ClInclude Include="..\..\Source\GameEngine\RenderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectManager.h">
+    <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\erniu\Downloads\GameTemplate\Projects\Release\Game.exe</FullPath>
+      <FullPath>C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
