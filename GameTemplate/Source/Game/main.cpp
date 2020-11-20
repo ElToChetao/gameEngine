@@ -2,15 +2,7 @@
 and may not be redistributed without written permission.*/
 
 //Using SDL, SDL_image, standard IO, and strings
-#include <SDL.h>
-#include <SDL_image.h>
-#include <stdio.h>
-#include <string>
-
-#include "Texture.h"
-
-#include "InputManager.h"
-#include "RenderManager.h"
+#include "MainHeader.h"
 
 //The dot that will move around on the screen
 class Dot
@@ -169,6 +161,9 @@ int main( int argc, char* args[] )
 
   RenderManager::CreateSingleton();
 
+  GameObjectManager::CreateSingleton();
+
+
 	//Start up SDL and create window
 	if( !RenderManager::GetInstance().Init() )
 	{
@@ -176,6 +171,8 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
+		GameObject go("../../Media/dot.bmp");
+
 		//Load media
 		if( !loadMedia() )
 		{
@@ -208,10 +205,7 @@ int main( int argc, char* args[] )
 					dot.handleEvent( e );
 				}
 
-        InputManager::GetInstance().Update();
-        if (InputManager::GetInstance().GetKey(SDL_SCANCODE_UP) ) {
-          
-        }
+				InputManager::GetInstance().Update();
 
 				//Move the dot
 				dot.move();

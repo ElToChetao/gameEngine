@@ -39,12 +39,16 @@ public:
 	Transform transform;
 	bool isActive;
 	LTexture texture;
+
+	GameObject() {
+	}
+
 	GameObject(string spritePath) {
 		isActive = true;
 
 		if (!texture.loadFromFile(spritePath))
 		{
-			printf("Failed to load dot texture!\n");
+			printf("Failed to load gameobject texture!\n");
 		}
 		start();
 	}
@@ -61,7 +65,7 @@ public:
 
 	}
 	void destroy() {
-
+		texture.free();
 	}
 };
 
