@@ -53,17 +53,18 @@ public:
 	}
 	void translate(Vector2 offset) {
 		transform.position += offset;
+		printf("%i, %i\n", transform.position.x, transform.position.y);
 	}
 	void render() {
 		texture.render(transform.position.x, transform.position.y);
 	}
-	void update() {
+	virtual void update() {
 
 	}
-	void start() {
+	virtual void start() {
 
 	}
-	void destroy() {
+	virtual void destroy() {
 		texture.free();
 	}
 };
@@ -75,12 +76,19 @@ private:
 	vector<GameObject*> gameObjects;
 	GameObjectManager() {};
 public:
-
+	void Start(void);
 	void Update(void);
 
 	void AddGameObject(GameObject*);
 	vector<GameObject*> GetGameObjects() { return gameObjects; };
 };
+
+void GameObjectManager::Start() {
+	for (int i = 0; i < gameObjects.size(); i++) {
+		gameObjects[i]->start();
+	}
+}
+
 void GameObjectManager::Update() {
 	for (int i = 0; i < gameObjects.size(); i++) {
 		gameObjects[i]->update();

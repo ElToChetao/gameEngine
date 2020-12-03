@@ -9,25 +9,33 @@ class ManagerOfManagers :public Singleton<ManagerOfManagers>
 {
 	friend class Singleton<ManagerOfManagers>;
 public:
-	ManagerOfManagers() {
-		Init();
-	}
+	ManagerOfManagers() {};
 	void Update(void);
-	void Init(void);
+	bool Init(void);
 	void Destroy(void);
 };
-void ManagerOfManagers::Init() {
+bool ManagerOfManagers::Init() {
+
 	// init all managers
 	InputManager::CreateSingleton();
 
 	RenderManager::CreateSingleton();
 
 	GameObjectManager::CreateSingleton();
+
+	if (!RenderManager::GetInstance().Init()) {
+		return false;
+	}
+
+	return true;
 }
 void ManagerOfManagers::Update() {
 	// update all managers
 
+	//RenderManager::GetInstance();
+
 	InputManager::GetInstance().Update();
+	GameObjectManager::GetInstance().Update();
 
 }
 void ManagerOfManagers::Destroy() {

@@ -82,6 +82,7 @@ bool RenderManager::Init(void)
 
 void RenderManager::Update(void)
 {
+    SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
 }
 
 /*****************************************************************************/

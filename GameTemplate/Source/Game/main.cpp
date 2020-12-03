@@ -36,16 +36,12 @@ class Dot
 };
 
 //Starts up SDL and creates window
-bool init();
 
 //Loads media
 bool loadMedia();
 
 //Frees media and shuts down SDL
 void close();
-
-
-
 
 //Scene textures
 LTexture gDotTexture;
@@ -143,26 +139,77 @@ void close()
 	gDotTexture.free();
 }
 
+class Go : public GameObject {
+public:
+	static const int DOT_WIDTH = 20;
+	static const int DOT_HEIGHT = 20;
+
+	//Maximum axis velocity of the dot
+	static const int DOT_VEL = 10;
+	Go(string path):GameObject(path) {
+	}
+
+	void update() override{
+		move();
+		render();
+	}
+	void render() {
+		RenderManager::GetInstance().Update();
+		SDL_SetRenderDrawColor(RenderManager::GetInstance().GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+		GameObject::render();
+	}
+	void move();
+};
+void Go::move()
+{
+	float hInput = InputManager::GetInstance().GetAxis("Horizontal");
+	float vInput = InputManager::GetInstance().GetAxis("Vertical");
+
+	//Move the dot left or right
+	//mPosX += DOT_VEL * hInput;
+
+	Vector2 vec(hInput, vInput);
+	translate(vec);
+
+	//If the dot went too far to the left or right
+	//if ((mPosX < 0) || (mPosX + DOT_WIDTH > RenderManager::SCREEN_WIDTH))
+	//{
+	//	//Move back
+	//	mPosX -= mVelX;
+	//}
+
+	////Move the dot up or down
+	//mPosY += DOT_VEL * vInput;
+
+	////If the dot went too far up or down
+	//if ((mPosY < 0) || (mPosY + DOT_HEIGHT > RenderManager::SCREEN_HEIGHT))
+	//{
+	//	//Move back
+	//	mPosY -= mVelY;
+	//}
+}
+
 int main( int argc, char* args[] )
 {
 	ManagerOfManagers::CreateSingleton();
 
 	//Start up SDL and create window
-	if( !RenderManager::GetInstance().Init() )
+	if( !ManagerOfManagers::GetInstance().Init())
 	{
 		printf( "Failed to initialize!\n" );
 	}
 	else
 	{
-		GameObject go("../../Media/dot.bmp");
+		Go go("../../Media/dot.bmp");
+		GameObjectManager::GetInstance().AddGameObject(&go);
 
 		//Load media
-		if( !loadMedia() )
+		/*if( !loadMedia() )
 		{
 			printf( "Failed to load media!\n" );
 		}
 		else
-		{	
+		{	*/
 			//Main loop flag
 			bool quit = false;
 
@@ -187,22 +234,19 @@ int main( int argc, char* args[] )
 					//Handle input for the dot
 					dot.handleEvent( e );
 				}
-				ManagerOfManagers::GetInstance().Update();
-
 				//Move the dot
-				dot.move();
+				//dot.move();
 
 				//Clear screen
-				SDL_SetRenderDrawColor( RenderManager::GetInstance().GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF );
-				SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
+				ManagerOfManagers::GetInstance().Update();
 
 				//Render objects
-				dot.render();
+				//dot.render();
 
 				//Update screen
 				SDL_RenderPresent(RenderManager::GetInstance().GetRenderer());
 			}
-		}
+		//}
 	}
 
 	//Free resources and close SDL
