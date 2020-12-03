@@ -92,23 +92,11 @@ void Dot::handleEvent( SDL_Event& e )
 
 void Dot::move()
 {
-  mVelX = 0;
-  mVelY = 0;
-  if (InputManager::GetInstance().GetKey(SDL_SCANCODE_UP)) {
-    mVelY -= DOT_VEL;
-  }
-  if (InputManager::GetInstance().GetKey(SDL_SCANCODE_DOWN)) {
-    mVelY += DOT_VEL;
-  }
-  if (InputManager::GetInstance().GetKey(SDL_SCANCODE_LEFT)) {
-    mVelX -= DOT_VEL;
-  }
-  if (InputManager::GetInstance().GetKey(SDL_SCANCODE_RIGHT)) {
-    mVelX += DOT_VEL;
-  }
+  float hInput = InputManager::GetInstance().GetAxis("Horizontal");
+  float vInput = InputManager::GetInstance().GetAxis("Vertical");
 
   //Move the dot left or right
-  mPosX += mVelX;
+  mPosX += DOT_VEL * hInput;
 
   //If the dot went too far to the left or right
   if( ( mPosX < 0 ) || ( mPosX + DOT_WIDTH > RenderManager::SCREEN_WIDTH ) )
@@ -118,7 +106,7 @@ void Dot::move()
   }
 
   //Move the dot up or down
-  mPosY += mVelY;
+  mPosY += DOT_VEL * vInput;
 
   //If the dot went too far up or down
   if( ( mPosY < 0 ) || ( mPosY + DOT_HEIGHT > RenderManager::SCREEN_HEIGHT ) )
@@ -157,12 +145,7 @@ void close()
 
 int main( int argc, char* args[] )
 {
-  InputManager::CreateSingleton();
-
-  RenderManager::CreateSingleton();
-
-  GameObjectManager::CreateSingleton();
-
+	ManagerOfManagers::CreateSingleton();
 
 	//Start up SDL and create window
 	if( !RenderManager::GetInstance().Init() )
@@ -204,8 +187,7 @@ int main( int argc, char* args[] )
 					//Handle input for the dot
 					dot.handleEvent( e );
 				}
-
-				InputManager::GetInstance().Update();
+				ManagerOfManagers::GetInstance().Update();
 
 				//Move the dot
 				dot.move();
@@ -225,10 +207,6 @@ int main( int argc, char* args[] )
 
 	//Free resources and close SDL
 	close();
-
-	RenderManager::DestroySingleton();
-
-	InputManager::DestroySingleton();
-
+	ManagerOfManagers::GetInstance().Destroy();
 	return 0;
 }

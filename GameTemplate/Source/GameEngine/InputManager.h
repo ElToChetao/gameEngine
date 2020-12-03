@@ -28,6 +28,8 @@ public:
 
   bool GetKey( int scanCode );
 
+  float GetAxis(string axis);
+
   /*****************************************************************************/
 
 };

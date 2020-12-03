@@ -2,7 +2,7 @@
 
 // For asserts
 #include <string>
-
+using namespace std;
 /**
 Class Singleton
 Base class to create singletons controlling construction and destruction of singleton

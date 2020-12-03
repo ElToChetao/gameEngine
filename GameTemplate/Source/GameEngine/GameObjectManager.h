@@ -4,7 +4,6 @@
 #include <Texture.h>
 #include <vector>
 
-using namespace std;
 class Vector2 {
 public:
 	int x;

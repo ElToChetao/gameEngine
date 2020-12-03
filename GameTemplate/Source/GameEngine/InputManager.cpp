@@ -15,6 +15,20 @@ bool InputManager::GetKey(int scanCode)
 
 /*****************************************************************************/
 
+float InputManager::GetAxis(string axis)
+{
+	float input = 0;
+	if (axis == "Horizontal")
+	{
+		input = mCurrentKeyStates[SDL_SCANCODE_RIGHT] - mCurrentKeyStates[SDL_SCANCODE_LEFT];
+	}
+	else if (axis == "Vertical")
+	{
+		input = mCurrentKeyStates[SDL_SCANCODE_DOWN] - mCurrentKeyStates[SDL_SCANCODE_UP];
+	}
+	return input;
+}
+
 //SDL_SCANCODE_UP
 //SDL_SCANCODE_DOWN
 //SDL_SCANCODE_LEFT

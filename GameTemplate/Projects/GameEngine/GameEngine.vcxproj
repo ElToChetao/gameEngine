@@ -130,6 +130,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\InputManager.h" />
+    <ClInclude Include="..\..\Source\GameEngine\MainHeader.h" />
+    <ClInclude Include="..\..\Source\GameEngine\ManagerOfManagers.h" />
     <ClInclude Include="..\..\Source\GameEngine\RenderManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\Singleton.h" />
     <ClInclude Include="..\..\Source\GameEngine\Texture.h" />

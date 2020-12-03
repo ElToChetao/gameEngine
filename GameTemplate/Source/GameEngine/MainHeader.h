@@ -8,3 +8,5 @@
 #include "InputManager.h"
 #include "RenderManager.h"
 #include "GameObjectManager.h"
+#include "ManagerOfManagers.h"
+using namespace std;

@@ -1,1 +1,4 @@
-﻿  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  InputManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(23,49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(27,48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

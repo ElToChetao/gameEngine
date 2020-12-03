@@ -41,5 +41,11 @@
     <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GameEngine\ManagerOfManagers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GameEngine\MainHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
