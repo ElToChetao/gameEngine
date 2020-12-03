@@ -23,7 +23,6 @@ public:
 	}
 };
 
-
 class Transform {
 public:
 	Vector2 position;
@@ -33,14 +32,14 @@ public:
 		rotation = 0;
 	}
 };
+
 class GameObject {
 public:
 	Transform transform;
 	bool isActive;
 	LTexture texture;
 
-	GameObject() {
-	}
+	GameObject(){}
 
 	GameObject(string spritePath) {
 		isActive = true;
@@ -53,7 +52,6 @@ public:
 	}
 	void translate(Vector2 offset) {
 		transform.position += offset;
-		printf("%i, %i\n", transform.position.x, transform.position.y);
 	}
 	void render() {
 		texture.render(transform.position.x, transform.position.y);
@@ -76,24 +74,22 @@ private:
 	vector<GameObject*> gameObjects;
 	GameObjectManager() {};
 public:
-	void Start(void);
-	void Update(void);
+	vector<GameObject*> GetGameObjects() {
+		return gameObjects; 
+	}
 
-	void AddGameObject(GameObject*);
-	vector<GameObject*> GetGameObjects() { return gameObjects; };
+	void Start() {
+		for (int i = 0; i < gameObjects.size(); i++) {
+			gameObjects[i]->start();
+		}
+	}
+
+	void Update() {
+		for (int i = 0; i < gameObjects.size(); i++) {
+			gameObjects[i]->update();
+		}
+	}
+	void AddGameObject(GameObject *go) {
+		gameObjects.push_back(go);
+	}
 };
-
-void GameObjectManager::Start() {
-	for (int i = 0; i < gameObjects.size(); i++) {
-		gameObjects[i]->start();
-	}
-}
-
-void GameObjectManager::Update() {
-	for (int i = 0; i < gameObjects.size(); i++) {
-		gameObjects[i]->update();
-	}
-}
-void GameObjectManager::AddGameObject(GameObject *go) {
-	gameObjects.push_back(go);
-}

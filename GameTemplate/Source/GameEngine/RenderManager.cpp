@@ -1,4 +1,6 @@
 #include "RenderManager.h"
+#include "GameObjectManager.h"
+
 
 /*****************************************************************************/
 
@@ -83,6 +85,10 @@ bool RenderManager::Init(void)
 void RenderManager::Update(void)
 {
     SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
+    vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
+    for (int i = 0; i < go.size(); i++) {
+        go[i]->render(); 
+    }
 }
 
 /*****************************************************************************/

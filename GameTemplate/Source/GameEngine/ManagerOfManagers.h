@@ -23,7 +23,8 @@ bool ManagerOfManagers::Init() {
 
 	GameObjectManager::CreateSingleton();
 
-	if (!RenderManager::GetInstance().Init()) {
+	if (!RenderManager::GetInstance().Init()) 
+	{
 		return false;
 	}
 
@@ -32,11 +33,9 @@ bool ManagerOfManagers::Init() {
 void ManagerOfManagers::Update() {
 	// update all managers
 
-	//RenderManager::GetInstance();
-
 	InputManager::GetInstance().Update();
 	GameObjectManager::GetInstance().Update();
-
+	RenderManager::GetInstance().Update();
 }
 void ManagerOfManagers::Destroy() {
 	// destroy all managers
