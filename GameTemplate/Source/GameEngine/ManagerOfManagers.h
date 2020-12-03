@@ -10,39 +10,34 @@ class ManagerOfManagers :public Singleton<ManagerOfManagers>
 	friend class Singleton<ManagerOfManagers>;
 public:
 	ManagerOfManagers() {};
-	void Update(void);
-	bool Init(void);
-	void Destroy(void);
-};
-bool ManagerOfManagers::Init() {
 
-	// init all managers
-	InputManager::CreateSingleton();
+	bool Init(void) {
+		// init all managers
 
-	RenderManager::CreateSingleton();
+		InputManager::CreateSingleton();
+		RenderManager::CreateSingleton();
+		GameObjectManager::CreateSingleton();
 
-	GameObjectManager::CreateSingleton();
+		if (!RenderManager::GetInstance().Init())
+		{
+			return false;
+		}
 
-	if (!RenderManager::GetInstance().Init()) 
-	{
-		return false;
+		return true;
 	}
+	void Update(void) {
+		// update all managers
 
-	return true;
-}
-void ManagerOfManagers::Update() {
-	// update all managers
+		InputManager::GetInstance().Update();
+		GameObjectManager::GetInstance().Update();
+		RenderManager::GetInstance().Update();
+	}
+	
+	void Destroy(void) {
+		// destroy all managers
 
-	InputManager::GetInstance().Update();
-	GameObjectManager::GetInstance().Update();
-	RenderManager::GetInstance().Update();
-}
-void ManagerOfManagers::Destroy() {
-	// destroy all managers
-
-	RenderManager::DestroySingleton();
-
-	InputManager::DestroySingleton();
-
-	ManagerOfManagers::DestroySingleton();
-}
+		RenderManager::DestroySingleton();
+		InputManager::DestroySingleton();
+		ManagerOfManagers::DestroySingleton();
+	}
+};

@@ -84,11 +84,17 @@ bool RenderManager::Init(void)
 
 void RenderManager::Update(void)
 {
+    // clear screen
     SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
+
+    //get al rendereable objets form gameobjectmanager
     vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
     for (int i = 0; i < go.size(); i++) {
         go[i]->render(); 
     }
+
+    //render screen
+    SDL_RenderPresent(RenderManager::GetInstance().GetRenderer());
 }
 
 /*****************************************************************************/

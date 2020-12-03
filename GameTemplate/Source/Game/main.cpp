@@ -4,17 +4,11 @@ and may not be redistributed without written permission.*/
 //Using SDL, SDL_image, standard IO, and strings
 #include "MainHeader.h"
 
-//The dot that will move around on the screen
-
 class Go : public GameObject {
+private:
+	static const int speed = 4;
 public:
-	static const int DOT_WIDTH = 20;
-	static const int DOT_HEIGHT = 20;
-
-	//Maximum axis velocity of the dot
-	static const int DOT_VEL = 10;
-	Go(string path):GameObject(path) {
-	}
+	Go(string path) :GameObject(path) {};
 
 	void update() override{
 		move();
@@ -29,7 +23,7 @@ public:
 		float vInput = InputManager::GetInstance().GetAxis("Vertical");
 
 		Vector2 vec(hInput, vInput);
-		translate(vec);
+		translate(vec * speed);
 	}
 };
 
@@ -47,44 +41,26 @@ int main( int argc, char* args[] )
 		Go go("../../Media/dot.bmp");
 		GameObjectManager::GetInstance().AddGameObject(&go);
 
-		//Load media
-		/*if( !loadMedia() )
+		bool quit = false;
+
+		//Event handler
+		SDL_Event e;
+
+		//While application is running
+		while( !quit )
 		{
-			printf( "Failed to load media!\n" );
-		}
-		else
-		{	*/
-			//Main loop flag
-			bool quit = false;
-
-			//Event handler
-			SDL_Event e;
-
-			//While application is running
-			while( !quit )
+			//Handle events on queue
+			while( SDL_PollEvent( &e ) != 0 )
 			{
-				//Handle events on queue
-				while( SDL_PollEvent( &e ) != 0 )
+				//User requests quit
+				if( e.type == SDL_QUIT )
 				{
-					//User requests quit
-					if( e.type == SDL_QUIT )
-					{
-						quit = true;
-					}
+					quit = true;
 				}
-				//Move the dot
-				//dot.move();
-
-				//Clear screen
-				ManagerOfManagers::GetInstance().Update();
-
-				//Render objects
-				//dot.render();
-
-				//Update screen
-				SDL_RenderPresent(RenderManager::GetInstance().GetRenderer());
 			}
-		//}
+			// update all managers and scripts
+			ManagerOfManagers::GetInstance().Update();
+		}
 	}
 
 	ManagerOfManagers::GetInstance().Destroy();

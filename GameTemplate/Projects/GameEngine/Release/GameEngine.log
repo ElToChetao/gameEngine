@@ -1,6 +1,5 @@
 ﻿  RenderManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(82,21): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(88,21): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(89,23): warning C4018: '<': no coinciden signed/unsigned
-  Texture.cpp
-  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(93,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(99,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(92,23): warning C4018: '<': signed/unsigned mismatch
+  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

@@ -25,12 +25,9 @@ private:
   //The window renderer
   SDL_Renderer *mRenderer = NULL;
 
-  
-
   // Private constructor to avoid more than one instance
   RenderManager();
   ~RenderManager();
-
   /*****************************************************************************/
 
 public:

@@ -1,12 +1,12 @@
 ﻿  main.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(82,21): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(88,21): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\Game\main.cpp(31,23): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Git\gameEngine\GameTemplate\Source\Game\main.cpp(31,15): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-     Creando biblioteca D:\Git\gameEngine\GameTemplate\Projects\Release\Game.lib y objeto D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exp
-  Generando código
-  0 of 195 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(93,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(99,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(25,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(25,15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+  Generating code
+  2 of 196 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  Game.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exe
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe
