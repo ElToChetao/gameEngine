@@ -1,12 +1,11 @@
 ﻿  main.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(93,21): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(99,21): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(25,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(25,15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(103,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(26,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\Game\main.cpp(26,15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
      Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
   Generating code
-  2 of 196 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+  8 of 203 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe

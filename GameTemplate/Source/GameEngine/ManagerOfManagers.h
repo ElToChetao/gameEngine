@@ -15,8 +15,10 @@ public:
 		// init all managers
 
 		InputManager::CreateSingleton();
-		RenderManager::CreateSingleton();
 		GameObjectManager::CreateSingleton();
+		RenderManager::CreateSingleton();
+
+		GameObjectManager::GetInstance().Init();
 
 		if (!RenderManager::GetInstance().Init())
 		{

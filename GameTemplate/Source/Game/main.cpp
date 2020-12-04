@@ -10,12 +10,13 @@ private:
 public:
 	Go(string path) :GameObject(path) {};
 
-	void update() override{
-		move();
+	void start() override {
+		transform.position.x = 100;
+		transform.position.y = 200;
+		printf("hola");
 	}
-	void render() {
-		SDL_SetRenderDrawColor(RenderManager::GetInstance().GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
-		GameObject::render();
+	void update() override {
+		move();
 	}
 	void move()
 	{
@@ -26,13 +27,17 @@ public:
 		translate(vec * speed);
 	}
 };
+class Wall : public GameObject {
+public:
+	Wall(string path) :GameObject(path) {};
+};
 
 int main( int argc, char* args[] )
 {
 	ManagerOfManagers::CreateSingleton();
 
 	//Start up SDL and create window
-	if( !ManagerOfManagers::GetInstance().Init())
+	if(!ManagerOfManagers::GetInstance().Init())
 	{
 		printf( "Failed to initialize!\n" );
 	}
@@ -40,6 +45,10 @@ int main( int argc, char* args[] )
 	{
 		Go go("../../Media/dot.bmp");
 		GameObjectManager::GetInstance().AddGameObject(&go);
+		go.start();
+
+		Wall wall("../../Media/dot.bmp");
+		GameObjectManager::GetInstance().AddGameObject(&wall);
 
 		bool quit = false;
 

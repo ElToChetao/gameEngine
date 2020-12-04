@@ -1,5 +1,4 @@
 ﻿  RenderManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(93,21): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(99,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(103,21): warning C4018: '<': signed/unsigned mismatch
 C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(92,23): warning C4018: '<': signed/unsigned mismatch
   GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

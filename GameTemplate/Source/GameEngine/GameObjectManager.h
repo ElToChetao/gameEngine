@@ -48,8 +48,10 @@ public:
 	Transform transform;
 	bool isActive;
 	LTexture texture;
+	string name;
 
 	GameObject(){
+		start();
 	}
 
 	GameObject(string spritePath) {
@@ -67,14 +69,19 @@ public:
 	void render() {
 		texture.render(transform.position.x, transform.position.y);
 	}
-	virtual void update() {
 
-	}
 	virtual void start() {
 
 	}
+	virtual void update() {
+
+	}
+	
 	virtual void destroy() {
 		texture.free();
+	}
+	virtual void onCollision() {
+
 	}
 };
 
@@ -89,10 +96,7 @@ public:
 		return gameObjects; 
 	}
 
-	void Start() {
-		for (int i = 0; i < gameObjects.size(); i++) {
-			gameObjects[i]->start();
-		}
+	void Init() {
 	}
 
 	void Update() {
