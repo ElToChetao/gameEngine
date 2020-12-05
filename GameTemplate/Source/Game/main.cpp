@@ -8,14 +8,12 @@ class Go : public GameObject {
 private:
 	static const int speed = 4;
 public:
-	Go(string path) :GameObject(path) {};
-
-	void start() override {
+	Go(string path) :GameObject(path) {
 		transform.position.x = 100;
 		transform.position.y = 200;
-		printf("hola");
-	}
-	void update() override {
+	};
+
+	void update() override{
 		move();
 	}
 	void move()
@@ -29,7 +27,9 @@ public:
 };
 class Wall : public GameObject {
 public:
-	Wall(string path) :GameObject(path) {};
+	Wall(string path) :GameObject(path) {
+		transform.position.x = 100;
+	};
 };
 
 int main( int argc, char* args[] )
@@ -45,7 +45,7 @@ int main( int argc, char* args[] )
 	{
 		Go go("../../Media/dot.bmp");
 		GameObjectManager::GetInstance().AddGameObject(&go);
-		go.start();
+		
 
 		Wall wall("../../Media/dot.bmp");
 		GameObjectManager::GetInstance().AddGameObject(&wall);

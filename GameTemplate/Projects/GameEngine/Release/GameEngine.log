@@ -1,4 +1,8 @@
 ﻿  RenderManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(103,21): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(20,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(21,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(75,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(75,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.h(104,21): warning C4018: '<': signed/unsigned mismatch
 C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(92,23): warning C4018: '<': signed/unsigned mismatch
   GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

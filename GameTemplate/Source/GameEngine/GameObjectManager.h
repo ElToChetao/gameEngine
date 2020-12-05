@@ -6,11 +6,15 @@
 
 class Vector2 {
 public:
-	int x;
-	int y;
+	static const Vector2 ZERO;
+	static const Vector2 ONE;
+	
+	float x;
+	float y;
+
 	Vector2() {
-		x = 0;
-		y = 0;
+		x = 0.0;
+		y = 0.0;
 	}
 	Vector2(int x, int y) {
 		this->x = x;
@@ -32,11 +36,37 @@ public:
 		return *this;
 	}
 };
+// meter en cpp
+//const Vector2 Vector2::ZERO = Vector2();
+//const Vector2 Vector2::ONE = Vector2(1, 1);
+
+class Collider {
+public:
+	
+	Collider() {};
+};
+
+class CircleCollider : public Collider{
+public:
+	float radius;
+	CircleCollider(float radius) :Collider() {
+		this->radius = radius;
+	}
+};
+class RectCollider : public Collider {
+public:
+	int width;
+	int height;
+	RectCollider(int width, int height) :Collider() {
+		this->width = width;
+		this->height = height;
+	}
+};
 
 class Transform {
 public:
 	Vector2 position;
-	int rotation;
+	float rotation;
 
 	Transform() {
 		rotation = 0;
@@ -49,10 +79,7 @@ public:
 	bool isActive;
 	LTexture texture;
 	string name;
-
-	GameObject(){
-		start();
-	}
+	Collider collider;
 
 	GameObject(string spritePath) {
 		isActive = true;
@@ -61,7 +88,6 @@ public:
 		{
 			printf("Failed to load gameobject texture!\n");
 		}
-		start();
 	}
 	void translate(Vector2 offset) {
 		transform.position += offset;
@@ -70,11 +96,7 @@ public:
 		texture.render(transform.position.x, transform.position.y);
 	}
 
-	virtual void start() {
-
-	}
 	virtual void update() {
-
 	}
 	
 	virtual void destroy() {
@@ -106,5 +128,7 @@ public:
 	}
 	void AddGameObject(GameObject *go) {
 		gameObjects.push_back(go);
+	}
+	void RemoveGameObject(GameObject *go) {
 	}
 };
