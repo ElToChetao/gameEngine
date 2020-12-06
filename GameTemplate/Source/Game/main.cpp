@@ -48,11 +48,11 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-		Go go("../../Media/dot.bmp", 10);
-		Wall wall("../../Media/dot.bmp", 10, Vector2(100, 100));
-		Wall wall2("../../Media/dot.bmp", 10, Vector2(200, 100));
-		Wall wall3("../../Media/dot.bmp", 10, Vector2(100, 200));
-		Wall wall4("../../Media/dot.bmp", 10, Vector2(100, 300));
+		Go go("../../Media/Sprites/dot.bmp", 10);
+		Wall wall("../../Media/Sprites/dot.bmp", 10, Vector2(100, 100));
+		Wall wall2("../../Media/Sprites/dot.bmp", 10, Vector2(200, 100));
+		Wall wall3("../../Media/Sprites/dot.bmp", 10, Vector2(100, 200));
+		Wall wall4("../../Media/Sprites/dot.bmp", 10, Vector2(100, 300));
 
 		bool quit = false;
 
