@@ -77,25 +77,25 @@ bool PhysicsManager::CheckRectCircleCollisions(GameObject* rect, GameObject* cir
 	float testY = 0;
 
 	// which edge is closest?
-	if (circle->transform.position.x < rect->transform.position.x)
+	if (circle->transform.position.x + circle->collider.radius < rect->transform.position.x)
 	{
 		testX = rect->transform.position.x;      // left edge
 	}
-	else if (circle->transform.position.x > rect->transform.position.x + rect->transform.size.x)
+	else if (circle->transform.position.x + circle->collider.radius > rect->transform.position.x + rect->transform.size.x)
 	{
 		testX = rect->transform.position.x + rect->transform.size.x;   // right edge
 	}
-	if (circle->transform.position.y < rect->transform.position.y) {
+	if (circle->transform.position.y - circle->collider.radius < rect->transform.position.y) {
 		testY = rect->transform.position.y;      // top edge
 	}
-	else if (circle->transform.position.y > rect->transform.position.y + rect->transform.size.y)
+	else if (circle->transform.position.y - circle->collider.radius > rect->transform.position.y + rect->transform.size.y)
 	{
 		testY = rect->transform.position.y + rect->transform.size.y;   // bottom edge
 	}
 
 	// get distance from closest edges
-	float distX = circle->transform.position.x - testX;
-	float distY = circle->transform.position.y - testY;
+	float distX = circle->transform.position.x + circle->collider.radius - testX;
+	float distY = circle->transform.position.y - circle->collider.radius - testY;
 	float distance = sqrt((distX * distX) + (distY * distY));
 
 	// if the distance is less than the radius, collision!
