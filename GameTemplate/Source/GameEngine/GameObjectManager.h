@@ -19,6 +19,8 @@ public:
 	void Init();
 
 	void Update();
+	void Destroy();
+
 	void AddGameObject(GameObject* go);
 	void RemoveGameObject(GameObject* go);
 };

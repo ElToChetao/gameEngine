@@ -12,8 +12,8 @@ void PhysicsManager::Update() {
 				bool collision = CheckCollisions(go[i], go[j]);
 				if (collision == true)
 				{
-					go[i]->onCollision(go[j]->collider);
-					go[j]->onCollision(go[i]->collider);
+					go[i]->onCollision(go[j]);
+					go[j]->onCollision(go[i]);
 				}
 			}
 		}

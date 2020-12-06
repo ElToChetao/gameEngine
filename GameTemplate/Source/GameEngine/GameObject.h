@@ -16,11 +16,12 @@ public:
 	Collider collider;
 
 	GameObject(string spritePath, float radius);
+
 	void translate(Vector2 offset);
 	void render();
+	void destroy(GameObject *other);
 
 	virtual void update() {};
-
-	virtual void destroy() {};
-	virtual void onCollision(Collider collider) {};
+	virtual void onDestroy() {};
+	virtual void onCollision(GameObject *other) {};
 };

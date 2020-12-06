@@ -1,14 +1,2 @@
-﻿  GameObject.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObject.cpp(17,57): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObject.cpp(17,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  GameObjectManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
-  PhysicsManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(7,20): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(8,21): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(51,17): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(99,17): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  RenderManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(92,23): warning C4018: '<': no coinciden signed/unsigned
-  Transform.cpp
-  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  Vector2.cpp
+  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

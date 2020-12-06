@@ -9,15 +9,15 @@ private:
 	static const int speed = 4;
 public:
 	Go(string path, float radius) :GameObject(path,radius) {
-		transform.position.x = 100;
-		transform.position.y = 200;
+		transform.position.x = 300;
+		transform.position.y = 300;
 	};
 
 	void update() override{
 		move();
 	}
-	void onCollision(Collider collider) override {
-		printf("\collision\n");
+	void onCollision(GameObject *other) override {
+		destroy(other);
 	}
 
 	void move()
@@ -31,8 +31,9 @@ public:
 };
 class Wall : public GameObject {
 public:
-	Wall(string path, float radius) :GameObject(path, radius) {
-		transform.position.x = 100;
+	Wall(string path, float radius, Vector2 startPos) :GameObject(path, radius) {
+		transform.position.x = startPos.x;
+		transform.position.y = startPos.y;
 	};
 };
 
@@ -48,11 +49,10 @@ int main( int argc, char* args[] )
 	else
 	{
 		Go go("../../Media/dot.bmp", 10);
-		GameObjectManager::GetInstance().AddGameObject(&go);
-		
-
-		Wall wall("../../Media/dot.bmp", 10);
-		GameObjectManager::GetInstance().AddGameObject(&wall);
+		Wall wall("../../Media/dot.bmp", 10, Vector2(100, 100));
+		Wall wall2("../../Media/dot.bmp", 10, Vector2(200, 100));
+		Wall wall3("../../Media/dot.bmp", 10, Vector2(100, 200));
+		Wall wall4("../../Media/dot.bmp", 10, Vector2(100, 300));
 
 		bool quit = false;
 

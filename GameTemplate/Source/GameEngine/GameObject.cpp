@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "GameObjectManager.h"
 
 GameObject::GameObject(string spritePath, float radius) {
 	isActive = true;
@@ -7,6 +8,7 @@ GameObject::GameObject(string spritePath, float radius) {
 	{
 		printf("Failed to load gameobject texture!\n");
 	}
+	GameObjectManager::GetInstance().AddGameObject(this);
 }
 
 void GameObject::translate(Vector2 offset) {
@@ -15,4 +17,7 @@ void GameObject::translate(Vector2 offset) {
 
 void GameObject::render() {
 	texture.render(transform.position.x, transform.position.y);
+}
+void GameObject::destroy(GameObject *other) {
+	GameObjectManager::GetInstance().RemoveGameObject(other);
 }
