@@ -1,2 +1,6 @@
-﻿  Vector2.cpp
+﻿  PhysicsManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(8,25): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(40,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(80,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
