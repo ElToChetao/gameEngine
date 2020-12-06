@@ -14,6 +14,7 @@ public:
 	LTexture texture;
 	string name;
 	Collider collider;
+	Collider* pCollider = &collider;
 
 	GameObject(string spritePath, float radius);
 

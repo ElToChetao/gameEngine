@@ -5,12 +5,14 @@ PhysicsManager::PhysicsManager(){}
 void PhysicsManager::Update() {
 	vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
 	for (int i = 0; i < go.size(); i++) {
-		for (int j = i + 1; j < go.size(); j++)
-		{
-			if (CheckCollisions(go[i], go[j]))
+		if (go[i]->pCollider != NULL) {
+			for (int j = i + 1; j < go.size(); j++)
 			{
-				go[i]->onCollision(go[j]);
-				go[j]->onCollision(go[i]);
+				if (go[j]->pCollider != NULL && CheckCollisions(go[i], go[j]))
+				{
+					go[i]->onCollision(go[j]);
+					go[j]->onCollision(go[i]);
+				}
 			}
 		}
 	}
