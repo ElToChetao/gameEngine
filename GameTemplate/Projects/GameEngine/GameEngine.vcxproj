@@ -123,11 +123,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\GameEngine\Collider.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\GameObject.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\GameObjectManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\InputManager.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\RenderManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Texture.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\Transform.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\GameEngine\Collider.h" />
+    <ClInclude Include="..\..\Source\GameEngine\GameObject.h" />
     <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\InputManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\MainHeader.h" />
@@ -136,6 +144,8 @@
     <ClInclude Include="..\..\Source\GameEngine\RenderManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\Singleton.h" />
     <ClInclude Include="..\..\Source\GameEngine\Texture.h" />
+    <ClInclude Include="..\..\Source\GameEngine\Transform.h" />
+    <ClInclude Include="..\..\Source\GameEngine\Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

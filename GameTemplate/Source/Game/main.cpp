@@ -8,7 +8,7 @@ class Go : public GameObject {
 private:
 	static const int speed = 4;
 public:
-	Go(string path) :GameObject(path) {
+	Go(string path, float radius) :GameObject(path,radius) {
 		transform.position.x = 100;
 		transform.position.y = 200;
 	};
@@ -16,18 +16,22 @@ public:
 	void update() override{
 		move();
 	}
+	void onCollision(Collider collider) override {
+		printf("\collision\n");
+	}
+
 	void move()
 	{
 		float hInput = InputManager::GetInstance().GetAxis("Horizontal");
 		float vInput = InputManager::GetInstance().GetAxis("Vertical");
-
+		
 		Vector2 vec(hInput, vInput);
 		translate(vec * speed);
 	}
 };
 class Wall : public GameObject {
 public:
-	Wall(string path) :GameObject(path) {
+	Wall(string path, float radius) :GameObject(path, radius) {
 		transform.position.x = 100;
 	};
 };
@@ -43,11 +47,11 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-		Go go("../../Media/dot.bmp");
+		Go go("../../Media/dot.bmp", 10);
 		GameObjectManager::GetInstance().AddGameObject(&go);
 		
 
-		Wall wall("../../Media/dot.bmp");
+		Wall wall("../../Media/dot.bmp", 10);
 		GameObjectManager::GetInstance().AddGameObject(&wall);
 
 		bool quit = false;
