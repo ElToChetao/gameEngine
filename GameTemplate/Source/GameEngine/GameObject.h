@@ -4,6 +4,7 @@
 #include "SDL.h"
 #include "Collider.h"
 #include "RenderManager.h"
+#include "TimeManager.h"
 #include <Texture.h>
 #include <string>
 using namespace std;
@@ -23,7 +24,6 @@ public:
 	GameObject();
 
 	void translate(Vector2 offset);
-	void render();
 	void destroy(GameObject* other);
 
 	void addCollider(float radius);

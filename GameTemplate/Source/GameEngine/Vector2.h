@@ -22,5 +22,5 @@ public:
 
 	Vector2& operator+=(const Vector2& other);
 	Vector2& operator-=(const Vector2& other);
-	Vector2& operator*(const int other);
+	Vector2& operator*(const float other);
 };

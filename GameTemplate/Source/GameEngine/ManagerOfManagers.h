@@ -5,6 +5,7 @@
 #include "RenderManager.h"
 #include "GameObjectManager.h"
 #include "PhysicsManager.h"
+#include "TimeManager.h"
 
 class ManagerOfManagers :public Singleton<ManagerOfManagers>
 {
@@ -14,7 +15,7 @@ public:
 
 	bool Init(void) {
 		// init all managers
-
+		TimeManager::CreateSingleton();
 		InputManager::CreateSingleton();
 		GameObjectManager::CreateSingleton();
 		RenderManager::CreateSingleton();
@@ -31,6 +32,7 @@ public:
 	}
 	void Update(void) {
 		// update all managers
+		TimeManager::GetInstance().Update();
 		InputManager::GetInstance().Update();
 		PhysicsManager::GetInstance().Update();
 		GameObjectManager::GetInstance().Update();
@@ -43,6 +45,7 @@ public:
 		GameObjectManager::DestroySingleton();
 		PhysicsManager::DestroySingleton();
 		InputManager::DestroySingleton();
+		TimeManager::GetInstance().DestroySingleton();
 		ManagerOfManagers::DestroySingleton();
 	}
 };

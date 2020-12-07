@@ -44,7 +44,7 @@ Vector2& Vector2:: operator-=(const Vector2& other) {
 	return *this;
 }
 
-Vector2& Vector2:: operator*(const int other) {
+Vector2& Vector2:: operator*(const float other) {
 	this->x *= other;
 	this->y *= other;
 	return *this;

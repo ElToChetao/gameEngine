@@ -15,12 +15,9 @@ void GameObject::addSprite(string spritePath) {
 }
 
 void GameObject::translate(Vector2 offset) {
-	transform.position += offset;
+	transform.position += offset * TimeManager::GetInstance().getDeltaTime();;
 }
 
-void GameObject::render() {
-	
-}
 void GameObject::destroy(GameObject *other) {
 	GameObjectManager::GetInstance().RemoveGameObject(other);
 }

@@ -1,6 +1,16 @@
-﻿  RenderManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(93,23): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(106,23): warning C4018: '<': signed/unsigned mismatch
-  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  GameObject.cpp
+  GameObjectManager.cpp
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
+  PhysicsManager.cpp
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(7,20): warning C4018: '<': no coinciden signed/unsigned
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(9,26): warning C4018: '<': no coinciden signed/unsigned
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(49,17): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(89,17): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  RenderManager.cpp
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(93,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,90): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(106,23): warning C4018: '<': no coinciden signed/unsigned
+  Transform.cpp
+  Vector2.cpp
+  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

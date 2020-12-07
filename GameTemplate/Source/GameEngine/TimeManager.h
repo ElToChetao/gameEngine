@@ -8,14 +8,14 @@ class TimeManager :public Singleton<TimeManager>
 	friend class Singleton<TimeManager>;
 
 private:
-	int lastTime;
+	float deltaTime;
+	int currentTime;
 
 	TimeManager();
 	~TimeManager();
 public:
-	int deltaTime;
-	int currentTime;
-
 	void Init(void);
 	void Update(void);
+
+	float getDeltaTime();
 };
