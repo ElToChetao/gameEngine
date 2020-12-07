@@ -11,6 +11,7 @@ public:
 	Go(Vector2 startPos) :GameObject() {
 		addSprite("../../Media/Sprites/dot.bmp");
 		addCollider(10);
+
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
 	};

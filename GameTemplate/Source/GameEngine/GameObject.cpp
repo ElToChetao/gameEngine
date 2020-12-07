@@ -11,16 +11,7 @@ void GameObject::addCollider(float radius = 0) {
 }
 
 void GameObject::addSprite(string spritePath) {
-	/*texture = new LTexture();
-	if (!texture->loadFromFile(spritePath))
-	{
-		printf("Failed to load gameobject texture!\n");
-	}
-	*/
-
-	if (renderManager.search(spritePath) == *)
-		texture
-
+	texture = RenderManager::GetInstance().GetSprite(spritePath);
 }
 
 void GameObject::translate(Vector2 offset) {

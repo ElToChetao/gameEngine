@@ -1,7 +1,5 @@
 #include "Texture.h"
 
-#include <string>
-
 #include "RenderManager.h"
 
 LTexture::LTexture()
@@ -18,7 +16,7 @@ LTexture::~LTexture()
   free();
 }
 
-bool LTexture::loadFromFile(std::string path)
+bool LTexture::loadFromFile(string path)
 {
   //Get rid of preexisting texture
   free();
@@ -48,6 +46,9 @@ bool LTexture::loadFromFile(std::string path)
       //Get image dimensions
       mWidth = loadedSurface->w;
       mHeight = loadedSurface->h;
+
+      //save sprite path
+      this->spritePath = path;
     }
 
     //Get rid of old loaded surface

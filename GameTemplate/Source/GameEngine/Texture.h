@@ -8,6 +8,14 @@
 //Texture wrapper class
 class LTexture
 {
+private:
+	//The actual hardware texture
+	SDL_Texture* mTexture;
+
+	//Image dimensions
+	int mWidth;
+	int mHeight;
+
 public:
   //Initializes variables
   LTexture();
@@ -42,11 +50,6 @@ public:
   int getWidth();
   int getHeight();
 
-private:
-  //The actual hardware texture
-  SDL_Texture* mTexture;
-
-  //Image dimensions
-  int mWidth;
-  int mHeight;
+  //Image path
+  std::string spritePath;
 };

@@ -1,7 +1,6 @@
 #include "RenderManager.h"
 #include "GameObjectManager.h"
 
-
 /*****************************************************************************/
 
 RenderManager::RenderManager(void)
@@ -87,19 +86,43 @@ bool RenderManager::Init()
 void RenderManager::Update()
 {
     // clear screen
-    SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
+    SDL_RenderClear(GetRenderer());
 
     //get al rendereable objets form gameobjectmanager
     vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
     for (int i = 0; i < go.size(); i++) {
         if (go[i]->texture != NULL) {
-            go[i]->render();
-            //go[i]->texture->render(go[i]->transform.position.x, go[i]->transform.position.y);
+            printf("%i\n", i);
+            go[i]->texture->render(go[i]->transform.position.x, go[i]->transform.position.y);
         }
     }
 
     //render screen
-    SDL_RenderPresent(RenderManager::GetInstance().GetRenderer());
+    SDL_RenderPresent(GetRenderer());
+}
+LTexture* RenderManager::GetSprite(string spritePath)
+{
+    // check if sprite is already loaded
+    for (int i = 0; i < sprites.size(); i++) {
+        if (sprites[i]->spritePath._Equal(spritePath)) {
+            // sprite already loaded
+            return sprites[i];
+        }
+    }
+
+    printf("adding new sprite\n");
+    // sprite not found
+    LTexture *tempSprite = new LTexture();
+    if (!tempSprite->loadFromFile(spritePath)) {
+        printf("Path not found");
+    }
+    else 
+    {
+        int index = sprites.size();
+        sprites.push_back(tempSprite);
+        printf("Sprite loaded succesfully");
+        return sprites[index];
+    }
 }
 
 /*****************************************************************************/

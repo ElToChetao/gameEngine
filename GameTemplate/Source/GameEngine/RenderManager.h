@@ -3,6 +3,8 @@
 #include "Singleton.h"
 #include "SDL.h"
 #include "SDL_image.h"
+#include <Texture.h>
+#include <vector>
 
 /**
 Render Manager class
@@ -14,6 +16,7 @@ class RenderManager :public Singleton<RenderManager>
 	/*****************************************************************************/
 
 	private:
+
 		//The window we'll be rendering to
 		SDL_Window* mWindow = NULL;
 
@@ -29,13 +32,14 @@ class RenderManager :public Singleton<RenderManager>
 		//Screen dimension constants
 		static const int SCREEN_WIDTH = 640;
 		static const int SCREEN_HEIGHT = 480;
-
-		vector <LTexture> sprites;
+		vector <LTexture*> sprites;
 
 		//Functions
 		bool Init();
 
 		void Update();
+
+		LTexture* GetSprite(string spritePath);
 
 		SDL_Window* GetWindow() { return mWindow; }
 

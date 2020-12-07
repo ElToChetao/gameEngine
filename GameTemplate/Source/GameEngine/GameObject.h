@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "SDL.h"
 #include "Collider.h"
+#include "RenderManager.h"
 #include <Texture.h>
 #include <string>
 using namespace std;
@@ -16,7 +17,7 @@ public:
 	string name;
 	string tag;
 
-	LTexture* texture = NULL;
+	LTexture* texture  = NULL;
 	Collider* collider = NULL;
 
 	GameObject();
