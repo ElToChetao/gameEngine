@@ -9,37 +9,37 @@ Render Manager class
 */
 class RenderManager :public Singleton<RenderManager>
 {
-  /*****************************************************************************/
-  friend class Singleton<RenderManager>;
-  /*****************************************************************************/
+	/*****************************************************************************/
+	friend class Singleton<RenderManager>;
+	/*****************************************************************************/
 
-public:
-  //Screen dimension constants
-  static const int SCREEN_WIDTH  = 640;
-  static const int SCREEN_HEIGHT = 480;
+	private:
+		//The window we'll be rendering to
+		SDL_Window* mWindow = NULL;
 
-private:
-  //The window we'll be rendering to
-  SDL_Window   *mWindow = NULL;
-  
-  //The window renderer
-  SDL_Renderer *mRenderer = NULL;
+		//The window renderer
+		SDL_Renderer* mRenderer = NULL;
 
-  // Private constructor to avoid more than one instance
-  RenderManager();
-  ~RenderManager();
-  /*****************************************************************************/
+		// Private constructor to avoid more than one instance
+		RenderManager();
+		~RenderManager();
+		/*****************************************************************************/
 
-public:
+	public:
+		//Screen dimension constants
+		static const int SCREEN_WIDTH = 640;
+		static const int SCREEN_HEIGHT = 480;
 
-  bool Init(void);
-  
-  void Update( void );
+		vector <LTexture> sprites;
 
-  SDL_Window   *GetWindow( void )   { return mWindow; }
+		//Functions
+		bool Init();
 
-  SDL_Renderer *GetRenderer( void ) { return mRenderer; }
+		void Update();
 
-  /*****************************************************************************/
+		SDL_Window* GetWindow() { return mWindow; }
 
+		SDL_Renderer* GetRenderer() { return mRenderer; }
+
+		/*****************************************************************************/
 };

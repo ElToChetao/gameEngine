@@ -9,12 +9,18 @@ GameObject::GameObject() {
 void GameObject::addCollider(float radius = 0) {
 	collider = new Collider(radius);
 }
+
 void GameObject::addSprite(string spritePath) {
-	texture = new LTexture();
+	/*texture = new LTexture();
 	if (!texture->loadFromFile(spritePath))
 	{
 		printf("Failed to load gameobject texture!\n");
 	}
+	*/
+
+	if (renderManager.search(spritePath) == *)
+		texture
+
 }
 
 void GameObject::translate(Vector2 offset) {
@@ -22,7 +28,7 @@ void GameObject::translate(Vector2 offset) {
 }
 
 void GameObject::render() {
-	texture->render(transform.position.x, transform.position.y);
+	
 }
 void GameObject::destroy(GameObject *other) {
 	GameObjectManager::GetInstance().RemoveGameObject(other);

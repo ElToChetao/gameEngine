@@ -17,13 +17,13 @@ public:
 	string tag;
 
 	LTexture* texture = NULL;
-	Collider *collider = NULL;
+	Collider* collider = NULL;
 
 	GameObject();
 
 	void translate(Vector2 offset);
 	void render();
-	void destroy(GameObject *other);
+	void destroy(GameObject* other);
 
 	void addCollider(float radius);
 	void addSprite(string spritePath);

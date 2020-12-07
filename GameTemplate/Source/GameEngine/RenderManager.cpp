@@ -25,7 +25,7 @@ RenderManager::~RenderManager(void)
 
 /*****************************************************************************/
 
-bool RenderManager::Init(void)
+bool RenderManager::Init()
 {
   //Initialization flag
   bool success = true;
@@ -76,13 +76,15 @@ bool RenderManager::Init(void)
       }
     }
   }
+    
+  //Load all images
 
   return success;
 }
 
 /*****************************************************************************/
 
-void RenderManager::Update(void)
+void RenderManager::Update()
 {
     // clear screen
     SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
@@ -92,6 +94,7 @@ void RenderManager::Update(void)
     for (int i = 0; i < go.size(); i++) {
         if (go[i]->texture != NULL) {
             go[i]->render();
+            //go[i]->texture->render(go[i]->transform.position.x, go[i]->transform.position.y);
         }
     }
 

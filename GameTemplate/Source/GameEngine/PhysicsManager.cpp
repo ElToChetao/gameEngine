@@ -31,7 +31,14 @@ bool PhysicsManager::CheckCollisions(GameObject* go, GameObject* other) {
 	else
 	{
 		//go must always be RectCollider
-		return go->collider->isRect ? CheckRectCircleCollisions(go, other) : CheckRectCircleCollisions(other, go);
+		if (go->collider->isRect)
+		{
+			return CheckRectCircleCollisions(go, other);
+		}
+		else
+		{
+			return CheckRectCircleCollisions(other, go);
+		}
 	}
 }
 
