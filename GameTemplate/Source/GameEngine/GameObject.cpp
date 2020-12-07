@@ -1,14 +1,20 @@
 #include "GameObject.h"
 #include "GameObjectManager.h"
 
-GameObject::GameObject(string spritePath, float radius) {
+GameObject::GameObject() {
 	isActive = true;
-	collider.radius = radius;
-	if (!texture.loadFromFile(spritePath))
+	GameObjectManager::GetInstance().AddGameObject(this);
+}
+
+void GameObject::addCollider(float radius = 0) {
+	collider = new Collider(radius);
+}
+void GameObject::addSprite(string spritePath) {
+	texture = new LTexture();
+	if (!texture->loadFromFile(spritePath))
 	{
 		printf("Failed to load gameobject texture!\n");
 	}
-	GameObjectManager::GetInstance().AddGameObject(this);
 }
 
 void GameObject::translate(Vector2 offset) {
@@ -16,7 +22,7 @@ void GameObject::translate(Vector2 offset) {
 }
 
 void GameObject::render() {
-	texture.render(transform.position.x, transform.position.y);
+	texture->render(transform.position.x, transform.position.y);
 }
 void GameObject::destroy(GameObject *other) {
 	GameObjectManager::GetInstance().RemoveGameObject(other);

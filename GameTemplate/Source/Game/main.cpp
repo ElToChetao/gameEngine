@@ -8,9 +8,11 @@ class Go : public GameObject {
 private:
 	static const int speed = 4;
 public:
-	Go(string path, float radius) :GameObject(path,radius) {
-		transform.position.x = 300;
-		transform.position.y = 300;
+	Go(Vector2 startPos) :GameObject() {
+		addSprite("../../Media/Sprites/dot.bmp");
+		addCollider(10);
+		transform.position.x = startPos.x;
+		transform.position.y = startPos.y;
 	};
 
 	void update() override{
@@ -31,7 +33,10 @@ public:
 };
 class Wall : public GameObject {
 public:
-	Wall(string path, float radius, Vector2 startPos) :GameObject(path, radius) {
+	Wall(Vector2 startPos) :GameObject() {
+		addSprite("../../Media/Sprites/dot.bmp");
+		addCollider(10);
+
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
 	};
@@ -48,17 +53,19 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-		Go go("../../Media/Sprites/dot.bmp", 10);
-		Wall wall("../../Media/Sprites/dot.bmp", 10, Vector2(100, 100));
-		Wall wall2("../../Media/Sprites/dot.bmp", 10, Vector2(200, 100));
-		Wall wall3("../../Media/Sprites/dot.bmp", 10, Vector2(100, 200));
-		Wall wall4("../../Media/Sprites/dot.bmp", 10, Vector2(100, 300));
+		// gameObject instances
+		Go go(Vector2(200, 300));
+		Wall wall(Vector2(100, 100));
+		Wall wall2(Vector2(200, 100));
+		Wall wall3(Vector2(100, 200));
+		Wall wall4(Vector2(100, 300));
 
 		bool quit = false;
 
 		//Event handler
 		SDL_Event e;
 
+		// float lastDt = SDL_GetTicks();
 		//While application is running
 		while( !quit )
 		{
@@ -71,11 +78,14 @@ int main( int argc, char* args[] )
 					quit = true;
 				}
 			}
+			/*float dt = SDL_GetTicks() - lastDt;
+			lastDt = SDL_GetTicks();*/
+
 			// update all managers and scripts
 			ManagerOfManagers::GetInstance().Update();
 		}
 	}
-
+	// free memory and close program
 	ManagerOfManagers::GetInstance().Destroy();
 	return 0;
 }

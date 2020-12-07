@@ -1,7 +1,8 @@
-﻿     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+﻿  main.cpp
+     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
   Generating code
-  3 of 248 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+  4 of 250 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    8 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe

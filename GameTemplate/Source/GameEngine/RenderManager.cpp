@@ -90,7 +90,9 @@ void RenderManager::Update(void)
     //get al rendereable objets form gameobjectmanager
     vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
     for (int i = 0; i < go.size(); i++) {
-        go[i]->render(); 
+        if (go[i]->texture != NULL) {
+            go[i]->render();
+        }
     }
 
     //render screen

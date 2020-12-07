@@ -7,20 +7,29 @@
 #include <string>
 using namespace std;
 
-class GameObject {
+class GameObject {	
 public:
 	Transform transform;
-	bool isActive;
-	LTexture texture;
-	string name;
-	Collider collider;
-	Collider* pCollider = &collider;
 
-	GameObject(string spritePath, float radius);
+	bool isActive;
+	
+	string name;
+	string tag;
+
+	LTexture* texture = NULL;
+	Collider *collider = NULL;
+
+	GameObject();
 
 	void translate(Vector2 offset);
 	void render();
 	void destroy(GameObject *other);
+
+	void addCollider(float radius);
+	void addSprite(string spritePath);
+
+	void setActive(bool b) { isActive = b; }
+	void setTag(string tag) { this->tag = tag; }
 
 	virtual void update() {};
 	virtual void onDestroy() {};

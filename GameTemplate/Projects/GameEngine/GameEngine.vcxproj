@@ -130,6 +130,7 @@
     <ClCompile Include="..\..\Source\GameEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\RenderManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Texture.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\TimeManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Transform.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Vector2.cpp" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="..\..\Source\GameEngine\RenderManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\Singleton.h" />
     <ClInclude Include="..\..\Source\GameEngine\Texture.h" />
+    <ClInclude Include="..\..\Source\GameEngine\TimeManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\Transform.h" />
     <ClInclude Include="..\..\Source\GameEngine\Vector2.h" />
   </ItemGroup>

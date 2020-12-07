@@ -2,18 +2,12 @@
 
 Collider::Collider()
 {
-
+	this->radius = 0;
+	isRect = true;
 }
 
 Collider::Collider(float radius)
 {
 	this->radius = radius;
-	if (radius > 0)
-	{
-		isRect = true;
-	}
-	else
-	{
-		isRect = false;
-	}
+	isRect = false;
 }
