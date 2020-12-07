@@ -27,3 +27,8 @@ float TimeManager::getDeltaTime()
 {
 	return (deltaTime/1000);
 }
+
+int TimeManager::getCurrentTime()
+{
+	return currentTime;
+}

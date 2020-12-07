@@ -18,4 +18,5 @@ public:
 	void Update(void);
 
 	float getDeltaTime();
+	int getCurrentTime();
 };

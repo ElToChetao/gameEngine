@@ -92,7 +92,6 @@ void RenderManager::Update()
     vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
     for (int i = 0; i < go.size(); i++) {
         if (go[i]->texture != NULL) {
-            printf("%i\n", i);
             go[i]->texture->render(go[i]->transform.position.x, go[i]->transform.position.y);
         }
     }
