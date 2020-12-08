@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\GameEngine\AudioManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Collider.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\GameObjectManager.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="..\..\Source\GameEngine\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\GameEngine\AudioManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\Collider.h" />
     <ClInclude Include="..\..\Source\GameEngine\GameObject.h" />
     <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h" />
