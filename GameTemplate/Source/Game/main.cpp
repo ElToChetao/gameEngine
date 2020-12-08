@@ -35,7 +35,7 @@ public:
 class Wall : public GameObject {
 public:
 	Wall(Vector2 startPos) :GameObject() {
-		addSprite("../../Media/Sprites/dot.bmp");
+		addSprite("../../Media/Sprites/Wall.png");
 		addCollider(10);
 
 		transform.position.x = startPos.x;

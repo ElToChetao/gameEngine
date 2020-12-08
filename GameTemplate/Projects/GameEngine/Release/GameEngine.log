@@ -1,3 +1,15 @@
-﻿  TimeManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\TimeManager.cpp(22,29): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  GameObject.cpp
+  GameObjectManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.cpp(13,20): warning C4018: '<': signed/unsigned mismatch
+  PhysicsManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(9,26): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(49,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(89,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  RenderManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(93,23): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(95,90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(95,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(105,23): warning C4018: '<': signed/unsigned mismatch
+  Transform.cpp
+  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

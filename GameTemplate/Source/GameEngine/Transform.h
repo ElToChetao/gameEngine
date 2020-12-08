@@ -4,8 +4,10 @@
 class Transform {
 public:
 	Vector2 position;
-	float rotation;
 	Vector2 size;
+	Vector2 scale;
+
+	float rotation;
 
 	Transform();
 };
