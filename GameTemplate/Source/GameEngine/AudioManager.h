@@ -1,16 +1,21 @@
 #pragma once
 
 #include "Singleton.h"
+#include "Audio.h"
 #include "SDL.h"
 #include <vector>
 #include <SDL_mixer.h>
+#include <stdio.h>
 
 class AudioManager :public Singleton<AudioManager>
 {
 	friend class Singleton<AudioManager>;
 
 private:
-	//vector<SDL_audio_h_>
+	Mix_Music* gMusic = NULL;
+	vector<Audio> sounds;
+	vector<Audio> playingSounds;
+
 	AudioManager();
 	~AudioManager();
 public:

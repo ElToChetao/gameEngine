@@ -1,2 +1,4 @@
 ﻿  AudioManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(25,23): warning C4018: '<': signed/unsigned mismatch
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(58,23): warning C4018: '<': signed/unsigned mismatch
   GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

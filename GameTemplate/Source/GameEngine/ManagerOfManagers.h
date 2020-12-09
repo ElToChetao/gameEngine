@@ -6,6 +6,7 @@
 #include "GameObjectManager.h"
 #include "PhysicsManager.h"
 #include "TimeManager.h"
+#include "AudioManager.h"
 
 class ManagerOfManagers :public Singleton<ManagerOfManagers>
 {
@@ -22,7 +23,7 @@ public:
 		PhysicsManager::CreateSingleton();
 
 		GameObjectManager::GetInstance().Init();
-
+		AudioManager::GetInstance().Init();
 		if (!RenderManager::GetInstance().Init())
 		{
 			return false;
@@ -37,15 +38,17 @@ public:
 		PhysicsManager::GetInstance().Update();
 		GameObjectManager::GetInstance().Update();
 		RenderManager::GetInstance().Update();
+		AudioManager::GetInstance().Update();
 	}
 	
 	void Destroy(void) {
 		// destroy all managers
+		AudioManager::DestroySingleton();
 		RenderManager::DestroySingleton();
 		GameObjectManager::DestroySingleton();
 		PhysicsManager::DestroySingleton();
 		InputManager::DestroySingleton();
-		TimeManager::GetInstance().DestroySingleton();
+		TimeManager::DestroySingleton();
 		ManagerOfManagers::DestroySingleton();
 	}
 };
