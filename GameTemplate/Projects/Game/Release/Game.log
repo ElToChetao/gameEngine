@@ -1,4 +1,5 @@
-﻿     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+﻿  main.cpp
+     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
 GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_FreeMusic
 GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_OpenAudio
 GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_Quit
