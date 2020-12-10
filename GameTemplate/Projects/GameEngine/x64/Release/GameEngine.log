@@ -1,0 +1,20 @@
+﻿  Audio.cpp
+  AudioManager.cpp
+  Collider.cpp
+  GameObject.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.h(6,10): fatal error C1083: Cannot open include file: 'Texture.h': No such file or directory
+  GameObjectManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.h(6,10): fatal error C1083: Cannot open include file: 'Texture.h': No such file or directory
+  InputManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(23,49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(27,48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  PhysicsManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.h(6,10): fatal error C1083: Cannot open include file: 'Texture.h': No such file or directory
+  RenderManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.h(6,10): fatal error C1083: Cannot open include file: 'Texture.h': No such file or directory
+  Texture.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.h(6,10): fatal error C1083: Cannot open include file: 'Texture.h': No such file or directory
+  TimeManager.cpp
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\TimeManager.cpp(22,29): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+  Transform.cpp
+  Vector2.cpp

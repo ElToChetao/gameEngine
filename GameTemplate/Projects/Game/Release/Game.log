@@ -1,8 +1,7 @@
-﻿  main.cpp
-     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
-GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_FreeMusic
-GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_OpenAudio
-GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_Quit
-GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_FreeChunk
-GameEngine.lib(AudioManager.obj) : error LNK2001: unresolved external symbol _Mix_LoadWAV_RW
-C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe : fatal error LNK1120: 5 unresolved externals
+﻿     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+  Generating code
+  0 of 323 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe
