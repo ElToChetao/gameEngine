@@ -1,5 +1,9 @@
 #pragma once
 #include "AudioManager.h"
+AudioManager::AudioManager()
+{
+
+}
 
 bool AudioManager::Init() 
 {
@@ -16,56 +20,80 @@ bool AudioManager::Init()
 
 void AudioManager::Update() 
 {
+    if (soundsQueue.size() > 0 && Mix_PlayingMusic() == 0)
+    {
+        printf("EEEE");
+        soundsQueue[0]->Stop();
+        RemoveAudio(soundsQueue[0]);
 
+        if (soundsQueue.size() > 0)
+        {
+            soundsQueue[0]->Play();
+        }
+    }
 }
 
 void AudioManager::PlaySound(string soundPath) 
 {
-    printf("\nPlaying Sound Stored in : %s", soundPath);
+    Audio* audio = SearchSound(soundPath);
+    if (audio == NULL)
+    {
+        printf("\nAudio added");
+        audio = NewAudio(soundPath);
+    }
+    if (Mix_PlayingMusic() == 0) //No music 
+    {
+        audio->Play();
+    }
+    soundsQueue.push_back(audio);
+    printf("\nAudio added to array          %i", soundsQueue.size());
 
-    // check if audio is already loaded
-   for (int i = 0; !sounds.empty() && i < sounds.size(); i++) 
-   {
-       printf("jejeje");
-   
-       if (sounds[i]->audioPath._Equal(soundPath) && !sounds[i]->isPlaying) {
-           // audio already loaded
-           sounds[i]->Play();
-           soundsPlaying.push_back(sounds[i]);
-           printf("sound founded \n");
-           return;
-       }
-   }
+    return;
+}
 
-    printf("\n adding new audio\n");
-    // audio not found
+void AudioManager::PlayCurrentSound(string soundPath)
+{
+    Audio* audio = SearchSound(soundPath);
+    if (audio == NULL)
+    {
+        printf("\nAudio added");
+        audio = NewAudio(soundPath);
+    }
+    audio->Play();
+    soundsQueue.push_back(audio);
+    printf("\nAudio added to array    %i", soundsQueue.size());
+
+    return;
+}
+
+void AudioManager::RemoveAudio(Audio* audio)
+{
+    printf("che");
+    soundsQueue.erase(remove(soundsQueue.begin(), soundsQueue.end(), audio), soundsQueue.end());
+}
+
+Audio* AudioManager::SearchSound(string soundPath)
+{
+    for (int i = 0; i < sounds.size(); i++)
+    {
+        if (sounds[i]->audioPath._Equal(soundPath))
+        {
+            return sounds[i];
+        }
+    }
+    return NULL;
+}
+
+Audio* AudioManager::NewAudio(string soundPath)
+{
+    printf("\nAdding new audio\n");
 
     Mix_Music* sound = Mix_LoadMUS(soundPath.c_str());
-    if (sound == NULL)
+    if (sound != NULL)
     {
-        printf("\nError loading the file");
+        Audio* audio = new Audio(soundPath, sound);
+        sounds.push_back(audio);
     }
-    else
-    {
-        Audio audio(soundPath, sound);
-        audio.isPlaying = true;
-        audio.Play();
-        sounds.push_back(&audio);
-        soundsPlaying.push_back(&audio);
-        
-
-        printf("audio loaded succesfully");
-    }
-}
-
-void AudioManager::StopSound(string soundPath) 
-{
-
-}
-
-void AudioManager::PauseSound(string soundPath) 
-{
-
 }
 
 AudioManager::~AudioManager()

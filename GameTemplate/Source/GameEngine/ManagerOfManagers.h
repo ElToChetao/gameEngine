@@ -21,9 +21,11 @@ public:
 		GameObjectManager::CreateSingleton();
 		RenderManager::CreateSingleton();
 		PhysicsManager::CreateSingleton();
+		AudioManager::CreateSingleton();
 
 		GameObjectManager::GetInstance().Init();
 		AudioManager::GetInstance().Init();
+
 		if (!RenderManager::GetInstance().Init())
 		{
 			return false;

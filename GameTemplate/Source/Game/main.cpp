@@ -38,10 +38,13 @@ class Wall : public GameObject {
 public:
 	Wall(Vector2 startPos) :GameObject() {
 		addSprite("../../Media/Sprites/Wall.png");
-		addCollider(10);
+		addCollider(-1);
 
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
+		transform.scale.x = 50;
+		transform.scale.y = 50;
+
 	};
 };
 

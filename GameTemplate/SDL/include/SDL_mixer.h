@@ -112,7 +112,7 @@ extern DECLSPEC void SDLCALL Mix_Quit(void);
 /* The internal format for an audio chunk */
 typedef struct Mix_Chunk {
     int allocated;
-    Uint8 *abuf;
+    Uint16 *abuf;
     Uint32 alen;
     Uint8 volume;       /* Per-sample volume, 0-128 */
 } Mix_Chunk;

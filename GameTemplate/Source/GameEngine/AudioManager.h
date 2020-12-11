@@ -16,13 +16,15 @@ private:
 	~AudioManager();
 public:
 	vector<Audio*> sounds;
-	vector<Audio*> soundsPlaying;
-
-
+	vector<Audio*> soundsQueue;
+	
 	bool Init(void);
 	void Update(void);
 
+	Audio* SearchSound(string soundPath);
+	Audio* NewAudio(string soundPath);
+
+	void RemoveAudio(Audio*);
 	void PlaySound(string soundPath);
-	void StopSound(string soundPath);
-	void PauseSound(string soundPath);
+	void PlayCurrentSound(string soundPath);
 };
