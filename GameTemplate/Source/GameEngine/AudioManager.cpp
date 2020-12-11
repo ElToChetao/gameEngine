@@ -21,25 +21,39 @@ void AudioManager::Update()
 
 void AudioManager::PlaySound(string soundPath) 
 {
-    // check if sprite is already loaded
-    for (int i = 0; i < sounds.size(); i++) {
-        if (sounds[i].audioPath._Equal(soundPath) && !sounds[i].isPlaying) {
-            // sprite already loaded
-            sounds[i].Play();
-            playingSounds.push_back(sounds[i]);
-            printf("sound founded \n");
-            return;
-        }
-    }
+    printf("\n Playing Sound Stored in : %s", soundPath);
 
-    printf("adding new audio\n");
-    // sprite not found
+    // check if audio is already loaded
+   for (int i = 0; i < 0; i++) 
+   {
+       printf("jejeje");
+   
+       if (sounds[i]->audioPath._Equal(soundPath) && !sounds[i]->isPlaying) {
+           // audio already loaded
+           sounds[i]->Play();
+           playingSounds.push_back(sounds[i]);
+           printf("sound founded \n");
+           return;
+       }
+   }
+
+    printf("\n adding new audio\n");
+    // audio not found
+
     Mix_Chunk* sound = Mix_LoadWAV(soundPath.c_str());
     if (sound != NULL)
     {
         Audio audio(soundPath, sound);
-        sounds.push_back(audio);
+        audio.isPlaying = true;
+        sounds.push_back(&audio);
+        playingSounds.push_back(&audio);
+        audio.Play();
+        
         printf("audio loaded succesfully");
+    }
+    else
+    {
+        printf("\nError loading the file");
     }
 }
 
@@ -57,7 +71,7 @@ AudioManager::~AudioManager()
 {    
     for (int i = 0; i < sounds.size(); i++)
     {
-        Mix_FreeChunk(sounds[i].sound);
+        Mix_FreeChunk(sounds[i]->sound);
     }
 
     //Free the music

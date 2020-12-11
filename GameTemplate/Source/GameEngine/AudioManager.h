@@ -12,13 +12,13 @@ class AudioManager :public Singleton<AudioManager>
 	friend class Singleton<AudioManager>;
 
 private:
-	Mix_Music* gMusic = NULL;
-	vector<Audio> sounds;
-	vector<Audio> playingSounds;
-
 	AudioManager();
 	~AudioManager();
 public:
+	Mix_Music* gMusic = NULL;
+	vector<Audio*> sounds;
+	vector<Audio*> playingSounds;
+
 	bool Init(void);
 	void Update(void);
 

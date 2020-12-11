@@ -1,27 +1,4 @@
-﻿  Audio.cpp
-  AudioManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(25,23): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(58,23): warning C4018: '<': signed/unsigned mismatch
-  Collider.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\GameObjectManager.cpp(13,20): warning C4018: '<': signed/unsigned mismatch
-  InputManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(23,49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\InputManager.cpp(27,48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  PhysicsManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(9,26): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(49,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(89,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  RenderManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(93,23): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(95,90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(95,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(105,23): warning C4018: '<': signed/unsigned mismatch
-  Texture.cpp
-  TimeManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\TimeManager.cpp(22,29): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-  Transform.cpp
-  Vector2.cpp
-  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  AudioManager.cpp
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(24,12): warning C4477: 'printf' : la cadena de formato '%s' requiere un argumento de tipo 'char *', pero el argumento variádico 1 tiene el tipo 'std::string'
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(72,23): warning C4018: '<': no coinciden signed/unsigned
+  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

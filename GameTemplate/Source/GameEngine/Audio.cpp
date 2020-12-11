@@ -19,6 +19,7 @@ Audio::~Audio()
 void Audio::Play()
 {
 	isPlaying = true;
+	Mix_PlayChannel(-1, this->sound, 0);
 }
 
 void Audio::Stop()
