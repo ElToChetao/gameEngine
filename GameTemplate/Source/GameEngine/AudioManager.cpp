@@ -30,10 +30,10 @@ void AudioManager::Update()
         {
             soundsQueue[0]->Play();
         }
-    }
+    }   
 }
 
-void AudioManager::PlaySound(string soundPath) 
+void AudioManager::PlaySound(string soundPath)
 {
     Audio* audio = SearchSound(soundPath);
     if (audio == NULL)
@@ -47,21 +47,6 @@ void AudioManager::PlaySound(string soundPath)
     }
     soundsQueue.push_back(audio);
     printf("\nAudio added to array          %i", soundsQueue.size());
-
-    return;
-}
-
-void AudioManager::PlayCurrentSound(string soundPath)
-{
-    Audio* audio = SearchSound(soundPath);
-    if (audio == NULL)
-    {
-        printf("\nAudio added");
-        audio = NewAudio(soundPath);
-    }
-    audio->Play();
-    soundsQueue.push_back(audio);
-    printf("\nAudio added to array    %i", soundsQueue.size());
 
     return;
 }

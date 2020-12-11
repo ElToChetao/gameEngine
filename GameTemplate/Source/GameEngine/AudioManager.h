@@ -26,5 +26,4 @@ public:
 
 	void RemoveAudio(Audio*);
 	void PlaySound(string soundPath);
-	void PlayCurrentSound(string soundPath);
 };
