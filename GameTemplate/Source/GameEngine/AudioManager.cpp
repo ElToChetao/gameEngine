@@ -21,17 +21,17 @@ void AudioManager::Update()
 
 void AudioManager::PlaySound(string soundPath) 
 {
-    printf("\n Playing Sound Stored in : %s", soundPath);
+    printf("\nPlaying Sound Stored in : %s", soundPath);
 
     // check if audio is already loaded
-   for (int i = 0; i < 0; i++) 
+   for (int i = 0; !sounds.empty() && i < sounds.size(); i++) 
    {
        printf("jejeje");
    
        if (sounds[i]->audioPath._Equal(soundPath) && !sounds[i]->isPlaying) {
            // audio already loaded
            sounds[i]->Play();
-           playingSounds.push_back(sounds[i]);
+           soundsPlaying.push_back(sounds[i]);
            printf("sound founded \n");
            return;
        }
@@ -40,20 +40,21 @@ void AudioManager::PlaySound(string soundPath)
     printf("\n adding new audio\n");
     // audio not found
 
-    Mix_Chunk* sound = Mix_LoadWAV(soundPath.c_str());
-    if (sound != NULL)
+    Mix_Music* sound = Mix_LoadMUS(soundPath.c_str());
+    if (sound == NULL)
     {
-        Audio audio(soundPath, sound);
-        audio.isPlaying = true;
-        sounds.push_back(&audio);
-        playingSounds.push_back(&audio);
-        audio.Play();
-        
-        printf("audio loaded succesfully");
+        printf("\nError loading the file");
     }
     else
     {
-        printf("\nError loading the file");
+        Audio audio(soundPath, sound);
+        audio.isPlaying = true;
+        audio.Play();
+        sounds.push_back(&audio);
+        soundsPlaying.push_back(&audio);
+        
+
+        printf("audio loaded succesfully");
     }
 }
 
@@ -71,12 +72,8 @@ AudioManager::~AudioManager()
 {    
     for (int i = 0; i < sounds.size(); i++)
     {
-        Mix_FreeChunk(sounds[i]->sound);
+        Mix_FreeMusic(sounds[i]->sound);
     }
-
-    //Free the music
-    Mix_FreeMusic(gMusic);
-    gMusic = NULL;
 
     //Quit SDL subsystems
     Mix_Quit();

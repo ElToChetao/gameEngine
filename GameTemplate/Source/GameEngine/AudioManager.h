@@ -15,9 +15,9 @@ private:
 	AudioManager();
 	~AudioManager();
 public:
-	Mix_Music* gMusic = NULL;
 	vector<Audio*> sounds;
-	vector<Audio*> playingSounds;
+	vector<Audio*> soundsPlaying;
+
 
 	bool Init(void);
 	void Update(void);

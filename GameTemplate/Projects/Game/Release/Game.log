@@ -1,8 +1,7 @@
-﻿  main.cpp
-     Creando biblioteca D:\Git\gameEngine\GameTemplate\Projects\Release\Game.lib y objeto D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exp
+﻿     Creando biblioteca D:\Git\gameEngine\GameTemplate\Projects\Release\Game.lib y objeto D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exp
   Generando código
-  10 of 319 functions ( 3.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    32 functions had inline decision re-evaluated but remain unchanged
+  3 of 355 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   Game.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exe

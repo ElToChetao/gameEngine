@@ -5,7 +5,7 @@ Audio::Audio()
 
 }
 
-Audio::Audio(string audioPath, Mix_Chunk* sound)
+Audio::Audio(string audioPath, Mix_Music* sound)
 {
 	this->audioPath = audioPath;
 	this->sound = sound;
@@ -19,7 +19,7 @@ Audio::~Audio()
 void Audio::Play()
 {
 	isPlaying = true;
-	Mix_PlayChannel(-1, this->sound, 0);
+	Mix_PlayMusic(sound, -1);
 }
 
 void Audio::Stop()
