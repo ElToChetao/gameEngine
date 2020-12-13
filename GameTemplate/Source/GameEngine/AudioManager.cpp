@@ -30,9 +30,7 @@ void AudioManager::PlaySound(string soundPath)
     {
         audio = NewAudio(soundPath);
     }
-    if (audio != NULL) {
-        audio->Play();
-    }
+    audio->Play();
 }
 
 
@@ -62,12 +60,25 @@ Audio* AudioManager::NewAudio(string soundPath)
     return NULL;
 }
 
+void AudioManager::SetBackgroundMusic(string soundPath)
+{
+    backgroundMusic = Mix_LoadMUS(soundPath.c_str());
+    Mix_PlayMusic(backgroundMusic, -1);
+}
+
+void AudioManager::StopMusic()
+{
+    Mix_HaltMusic();
+}
+
 AudioManager::~AudioManager()
 {    
     for (int i = 0; i < sounds.size(); i++)
     {
         Mix_FreeChunk(sounds[i]->sound);
     }
+    Mix_FreeMusic(backgroundMusic);
+
 
     //Quit SDL subsystems
     Mix_Quit();

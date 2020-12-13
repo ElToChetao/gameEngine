@@ -25,4 +25,6 @@ public:
 	Audio* NewAudio(string soundPath);
 
 	void PlaySound(string soundPath);
+	void SetBackgroundMusic(string soundPath);
+	void StopMusic();
 };
