@@ -7,7 +7,21 @@ GameObject::GameObject() {
 }
 
 void GameObject::addCollider(float radius) {
-	collider = new Collider(radius);
+	if (radius < 0)
+	{
+		collider = new Collider();
+	}
+	else
+	{
+		collider = new Collider(radius);
+		transform.size.x = radius * 2;
+		transform.size.y = radius * 2;
+	}
+}
+
+Vector2 GameObject::getCenterPosition()
+{
+	return Vector2(transform.position.x + transform.size.x / 2, transform.position.y + transform.size.y / 2);
 }
 
 void GameObject::addSprite(string spritePath) {

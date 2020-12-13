@@ -1,4 +1,2 @@
-﻿  AudioManager.cpp
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(39,23): warning C4018: '<': no coinciden signed/unsigned
-D:\Git\gameEngine\GameTemplate\Source\GameEngine\AudioManager.cpp(76,23): warning C4018: '<': no coinciden signed/unsigned
+﻿  GameObject.cpp
   GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib

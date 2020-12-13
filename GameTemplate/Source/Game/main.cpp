@@ -42,8 +42,8 @@ public:
 
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
-		transform.scale.x = 50;
-		transform.scale.y = 50;
+		transform.size.x = 30;
+		transform.size.y = 30;
 
 	};
 };

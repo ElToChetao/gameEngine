@@ -35,4 +35,5 @@ public:
 	virtual void update() {};
 	virtual void onDestroy() {};
 	virtual void onCollision(GameObject *other) {};
+	Vector2 getCenterPosition();
 };

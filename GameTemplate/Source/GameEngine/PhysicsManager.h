@@ -26,6 +26,8 @@ public:
 
 	void Update();
 	
+	double distanceSquared(int x1, int y1, int x2, int y2);
+
 	bool CheckCollisions(GameObject* go, GameObject* other);
 
 	bool CheckCircleCollisions(GameObject* go, GameObject* other);

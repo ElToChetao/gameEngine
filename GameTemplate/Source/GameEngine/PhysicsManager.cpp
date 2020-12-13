@@ -4,6 +4,7 @@ PhysicsManager::PhysicsManager(){}
 
 void PhysicsManager::Update() {
 	vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
+
 	for (int i = 0; i < go.size(); i++) {
 		if (go[i]->collider != NULL) {
 			for (int j = i + 1; j < go.size(); j++)
@@ -44,50 +45,66 @@ bool PhysicsManager::CheckCollisions(GameObject* go, GameObject* other) {
 
 bool PhysicsManager::CheckCircleCollisions(GameObject* go, GameObject* other)
 {
-	float dx = (go->transform.position.x + go->collider->radius) - (other->transform.position.x + other->collider->radius);
-	float dy = (go->transform.position.y - go->collider->radius) - (other->transform.position.y - other->collider->radius);
-	float distance = sqrt((dx * dx) + (dy * dy));
+	Vector2 centerCircle1 = go->getCenterPosition();
+	Vector2 centerCircle2 = other->getCenterPosition();
 
-	return distance < go->collider->radius + other->collider->radius;
+	//Calculate total radius squared
+	int totalRadiusSquared = go->collider->radius + other->collider->radius;
+	totalRadiusSquared = totalRadiusSquared * totalRadiusSquared;
+
+	//If the distance between the centers of the circles is less than the sum of their radii
+	return (distanceSquared(centerCircle1.x, centerCircle1.y, centerCircle2.x, centerCircle2.y) < (totalRadiusSquared));
+}
+
+double PhysicsManager::distanceSquared(int x1, int y1, int x2, int y2)
+{
+	int deltaX = x2 - x1;
+	int deltaY = y2 - y1;
+	return deltaX * deltaX + deltaY * deltaY;
 }
 
 bool PhysicsManager::CheckRectCollisions(GameObject* go, GameObject* other)
 {
-	return go->transform.position.x < other->transform.position.x + other->transform.size.x &&
-		go->transform.position.x + other->transform.size.x > other->transform.size.x &&
-		go->transform.position.y < other->transform.position.y + other->transform.size.y &&
-		go->transform.size.y + go->transform.position.y > other->transform.position.y;
+	return (go->transform.position.x < other->transform.position.x + other->transform.size.x &&
+		    go->transform.position.x + other->transform.size.x > other->transform.size.x &&
+		    go->transform.position.y < other->transform.position.y + other->transform.size.y &&
+		    go->transform.size.y + go->transform.position.y > other->transform.position.y);
 }
 
-//Go always rect
 bool PhysicsManager::CheckRectCircleCollisions(GameObject* rect, GameObject* circle)
 {
+	
+	Vector2 centerCircle = circle->getCenterPosition();
 	// temporary variables to set edges for testing
-	float testX = 0;
-	float testY = 0;
+	int testX = 0;
+	int testY = 0;
 
 	// which edge is closest?
-	if (circle->transform.position.x + circle->collider->radius < rect->transform.position.x)
+	if (centerCircle.x < rect->transform.position.x)
 	{
 		testX = rect->transform.position.x;      // left edge
 	}
-	else if (circle->transform.position.x + circle->collider->radius > rect->transform.position.x + rect->transform.size.x)
+	else if (centerCircle.x > rect->transform.position.x + rect->transform.size.x)
 	{
 		testX = rect->transform.position.x + rect->transform.size.x;   // right edge
 	}
-	if (circle->transform.position.y - circle->collider->radius < rect->transform.position.y) {
+	else
+	{
+		testX = centerCircle.x;
+	}
+
+	if (centerCircle.y < rect->transform.position.y) {
 		testY = rect->transform.position.y;      // top edge
 	}
-	else if (circle->transform.position.y - circle->collider->radius > rect->transform.position.y + rect->transform.size.y)
+	else if (centerCircle.y > rect->transform.position.y + rect->transform.size.y)
 	{
 		testY = rect->transform.position.y + rect->transform.size.y;   // bottom edge
 	}
-
-	// get distance from closest edges
-	float distX = circle->transform.position.x + circle->collider->radius - testX;
-	float distY = circle->transform.position.y - circle->collider->radius - testY;
-	float distance = sqrt((distX * distX) + (distY * distY));
+	else
+	{
+		testY = centerCircle.y;
+	}
 
 	// if the distance is less than the radius, collision!
-	return distance <= circle->collider->radius;
+	return distanceSquared(centerCircle.x, centerCircle.y, testX, testY) < (circle->collider->radius * circle->collider->radius);
 }
