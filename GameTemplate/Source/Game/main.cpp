@@ -22,7 +22,7 @@ public:
 
 	void onCollision(GameObject *other) override {
 		destroy(other);
-		//AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
+		AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
 	}
 
 	void move()

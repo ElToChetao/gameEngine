@@ -44,7 +44,8 @@ public:
 	}
 	
 	void Destroy(void) {
-		// destroy all managers
+		// destroy all manager
+		AudioManager::GetInstance().
 		AudioManager::DestroySingleton();
 		RenderManager::DestroySingleton();
 		GameObjectManager::DestroySingleton();

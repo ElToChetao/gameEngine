@@ -15,8 +15,8 @@ private:
 	AudioManager();
 	~AudioManager();
 public:
+	Mix_Music* backgroundMusic;
 	vector<Audio*> sounds;
-	vector<Audio*> soundsQueue;
 	
 	bool Init(void);
 	void Update(void);
@@ -24,6 +24,5 @@ public:
 	Audio* SearchSound(string soundPath);
 	Audio* NewAudio(string soundPath);
 
-	void RemoveAudio(Audio*);
 	void PlaySound(string soundPath);
 };

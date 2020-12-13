@@ -9,11 +9,11 @@ class Audio
 {
 	public:
 		string audioPath;
-		Mix_Music* sound = NULL;
+		Mix_Chunk* sound = NULL;
 		bool isPlaying;
 
 		Audio();
-		Audio(string audioPath, Mix_Music* sound );
+		Audio(string audioPath, Mix_Chunk* sound );
 		~Audio();
 
 		void Play();

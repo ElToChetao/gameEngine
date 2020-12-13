@@ -20,17 +20,7 @@ bool AudioManager::Init()
 
 void AudioManager::Update() 
 {
-    if (soundsQueue.size() > 0 && Mix_PlayingMusic() == 0)
-    {
-        printf("EEEE");
-        soundsQueue[0]->Stop();
-        RemoveAudio(soundsQueue[0]);
-
-        if (soundsQueue.size() > 0)
-        {
-            soundsQueue[0]->Play();
-        }
-    }   
+ 
 }
 
 void AudioManager::PlaySound(string soundPath)
@@ -38,24 +28,11 @@ void AudioManager::PlaySound(string soundPath)
     Audio* audio = SearchSound(soundPath);
     if (audio == NULL)
     {
-        printf("\nAudio added");
         audio = NewAudio(soundPath);
     }
-    if (Mix_PlayingMusic() == 0) //No music 
-    {
-        audio->Play();
-    }
-    soundsQueue.push_back(audio);
-    printf("\nAudio added to array          %i", soundsQueue.size());
-
-    return;
+    audio->Play();
 }
 
-void AudioManager::RemoveAudio(Audio* audio)
-{
-    printf("che");
-    soundsQueue.erase(remove(soundsQueue.begin(), soundsQueue.end(), audio), soundsQueue.end());
-}
 
 Audio* AudioManager::SearchSound(string soundPath)
 {
@@ -73,7 +50,7 @@ Audio* AudioManager::NewAudio(string soundPath)
 {
     printf("\nAdding new audio\n");
 
-    Mix_Music* sound = Mix_LoadMUS(soundPath.c_str());
+    Mix_Chunk* sound = Mix_LoadWAV(soundPath.c_str());
     if (sound != NULL)
     {
         Audio* audio = new Audio(soundPath, sound);
@@ -85,7 +62,7 @@ AudioManager::~AudioManager()
 {    
     for (int i = 0; i < sounds.size(); i++)
     {
-        Mix_FreeMusic(sounds[i]->sound);
+        Mix_FreeChunk(sounds[i]->sound);
     }
 
     //Quit SDL subsystems
