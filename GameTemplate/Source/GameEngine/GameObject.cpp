@@ -6,7 +6,7 @@ GameObject::GameObject() {
 	GameObjectManager::GetInstance().AddGameObject(this);
 }
 
-void GameObject::addCollider(float radius = 0) {
+void GameObject::addCollider(float radius) {
 	collider = new Collider(radius);
 }
 

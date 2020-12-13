@@ -1,7 +1,8 @@
-﻿     Creando biblioteca D:\Git\gameEngine\GameTemplate\Projects\Release\Game.lib y objeto D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exp
-  Generando código
-  1 of 356 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  Game.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\Game.exe
+﻿  main.cpp
+     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(125): warning C4715: 'RenderManager::GetSprite': not all control paths return a value
+  All 356 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe

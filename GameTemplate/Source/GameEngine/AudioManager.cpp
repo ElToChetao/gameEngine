@@ -30,7 +30,9 @@ void AudioManager::PlaySound(string soundPath)
     {
         audio = NewAudio(soundPath);
     }
-    audio->Play();
+    if (audio != NULL) {
+        audio->Play();
+    }
 }
 
 
@@ -55,7 +57,9 @@ Audio* AudioManager::NewAudio(string soundPath)
     {
         Audio* audio = new Audio(soundPath, sound);
         sounds.push_back(audio);
+        return audio;
     }
+    return NULL;
 }
 
 AudioManager::~AudioManager()

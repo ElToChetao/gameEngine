@@ -26,7 +26,7 @@ public:
 	void translate(Vector2 offset);
 	void destroy(GameObject* other);
 
-	void addCollider(float radius);
+	void addCollider(float radius = -1);
 	void addSprite(string spritePath);
 
 	void setActive(bool b) { isActive = b; }

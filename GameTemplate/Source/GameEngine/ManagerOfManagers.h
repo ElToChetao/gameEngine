@@ -7,6 +7,7 @@
 #include "PhysicsManager.h"
 #include "TimeManager.h"
 #include "AudioManager.h"
+#include <SDL_thread.h>
 
 class ManagerOfManagers :public Singleton<ManagerOfManagers>
 {
@@ -33,14 +34,29 @@ public:
 
 		return true;
 	}
+	int TestThread(void* data) {
+		RenderManager::GetInstance().Update();
+		return 0;
+	}
+	int SDL_ThreadFunction(void* data) {
+		//Print incoming data
+		printf("Running thread with value = %d\n", (int)data);
+		return 0;
+	}
+
+
 	void Update(void) {
 		// update all managers
+		int data = 101;
+		//SDL_Thread* thread = SDL_CreateThread(SDL_ThreadFunction, "TestThread", (void*)data);
+
 		TimeManager::GetInstance().Update();
 		InputManager::GetInstance().Update();
 		PhysicsManager::GetInstance().Update();
 		GameObjectManager::GetInstance().Update();
 		RenderManager::GetInstance().Update();
 		AudioManager::GetInstance().Update();
+		//SDL_WaitThread(thread, NULL);
 	}
 	
 	void Destroy(void) {
