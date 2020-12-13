@@ -3,8 +3,6 @@
 #include "Singleton.h"
 #include "SDL.h"
 #include "GameObjectManager.h"
-#include <typeinfo>
-#include <Math.h>
 
 class PhysicsManager :public Singleton<PhysicsManager>
 {
