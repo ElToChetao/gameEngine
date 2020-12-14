@@ -143,7 +143,6 @@
     <ClInclude Include="..\..\Source\GameEngine\GameObject.h" />
     <ClInclude Include="..\..\Source\GameEngine\GameObjectManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\InputManager.h" />
-    <ClInclude Include="..\..\Source\GameEngine\MainHeader.h" />
     <ClInclude Include="..\..\Source\GameEngine\ManagerOfManagers.h" />
     <ClInclude Include="..\..\Source\GameEngine\PhysicsManager.h" />
     <ClInclude Include="..\..\Source\GameEngine\RenderManager.h" />

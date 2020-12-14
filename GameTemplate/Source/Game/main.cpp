@@ -1,8 +1,8 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2015)
-and may not be redistributed without written permission.*/
+#pragma once
+#include "ManagerOfManagers.h"
+//#include "SaveSystem.h"
 
-//Using SDL, SDL_image, standard IO, and strings
-#include "MainHeader.h"
+using namespace std;
 
 class Go : public GameObject {
 private:
