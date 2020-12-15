@@ -9,7 +9,7 @@ bool KeyExists(string key) {
         while (!file.eof())
         {
             getline(file, data);
-            if (data.find(key) == 0) 
+            if (data.find(key) == 0)
             {
                 file.close();
                 return true;
@@ -40,13 +40,30 @@ string GetValue(string key) {
         return "";
     }
 }
-
-string Load(string key)
+template <typename T>
+T Load(string key)
 {
     if (KeyExists(key)) {
-        return GetValue(key);
+        string data = GetValue(key);
+        T ret;
+        istringstream iss(data);
+        if (data.find("0x") != std::string::npos)
+        {
+            iss >> hex >> ret;
+        }
+        else
+        {
+            iss >> dec >> ret;
+        }
+
+        if (iss.fail())
+        {
+            std::cout << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+            return T();
+        }
+        return ret;
     }
-    return "";
+    return T();
 }
 
 template <typename T>
