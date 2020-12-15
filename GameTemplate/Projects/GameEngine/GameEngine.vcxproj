@@ -129,6 +129,7 @@
     <ClCompile Include="..\..\Source\GameEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\GameObjectManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\InputManager.cpp" />
+    <ClCompile Include="..\..\Source\GameEngine\ManagerOfManagers.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\RenderManager.cpp" />
     <ClCompile Include="..\..\Source\GameEngine\Texture.cpp" />
