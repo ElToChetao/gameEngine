@@ -1,8 +1,6 @@
 #pragma once
 #include "ManagerOfManagers.h"
-//#include "SaveSystem.h"
-
-using namespace std;
+#include "SaveSystem.h"
 
 class Go : public GameObject {
 private:

@@ -1,7 +1,11 @@
-#pragma once
-#include "SaveSystem.h"
 
-bool KeyExists(string key) {
+#include "SaveSystem.h"
+#include <iostream>
+#include <fstream>
+#include <thread>
+#include <sstream>
+
+bool SaveSystem::KeyExists(string key) {
     string data;
     ifstream file(folderPath);
     if (file.is_open())
@@ -19,10 +23,10 @@ bool KeyExists(string key) {
         return false;
     }
 }
-bool SaveExists(string key) {
+bool SaveSystem::SaveExists(string key) {
     return KeyExists(key);
 }
-string GetValue(string key) {
+string SaveSystem::GetValue(string key) {
     string data;
     ifstream file(folderPath);
     if (file.is_open())
@@ -41,7 +45,7 @@ string GetValue(string key) {
     }
 }
 template <typename T>
-T Load(string key)
+T SaveSystem::Load(string key)
 {
     if (KeyExists(key)) {
         string data = GetValue(key);
@@ -67,7 +71,7 @@ T Load(string key)
 }
 
 template <typename T>
-void Save(T data, string key)
+void SaveSystem::Save(T data, string key)
 {
     if (!KeyExists(key)) {
         ofstream file;
