@@ -57,6 +57,8 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
+
+		//bool b = SaveSystem::KeyExists("fornite");
 		// gameObject instances
 		Go go(Vector2(200, 300));
 		Wall wall(Vector2(100, 100));

@@ -1,9 +1,8 @@
-﻿  SaveSystem.cpp
-  main.cpp
-     Creando biblioteca C:\Gitkraken_repositories\gameEngine\GameTemplate\Projects\Release\Game.lib y objeto C:\Gitkraken_repositories\gameEngine\GameTemplate\Projects\Release\Game.exp
-  Generando código
-  0 of 491 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+﻿  main.cpp
+     Creating library C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.lib and object C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exp
+  Generating code
+  1 of 427 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  Game.vcxproj -> C:\Gitkraken_repositories\gameEngine\GameTemplate\Projects\Release\Game.exe
+  Finished generating code
+  Game.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\Game.exe

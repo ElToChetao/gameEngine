@@ -19,11 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Extensions\SaveSystem.cpp" />
     <ClCompile Include="..\..\Source\Game\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\Extensions\SaveSystem.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{48D35296-693E-488E-8357-C7958DE80A25}</ProjectGuid>

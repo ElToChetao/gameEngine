@@ -1,18 +1,15 @@
 #pragma once
 #include <string>
-using namespace std;
 class SaveSystem {
 public:
 	SaveSystem() {};
-	std::string folderPath = "savedData.txt";
-
-	bool KeyExists(std::string key);
-	bool SaveExists(std::string key);
-	std::string GetValue(std::string key);
+	static bool KeyExists(std::string key);
+	static bool SaveExists(std::string key);
+	static std::string GetValue(std::string key);
 
 	template <typename T>
-	T Load(std::string key);
+	static T Load(std::string key);
 
 	template <typename T>
-	void Save(T data, std::string key);
+	static void Save(T data, std::string key);
  };

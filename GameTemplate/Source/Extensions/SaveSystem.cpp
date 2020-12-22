@@ -1,13 +1,12 @@
-
 #include "SaveSystem.h"
 #include <iostream>
 #include <fstream>
 #include <thread>
 #include <sstream>
 
-bool SaveSystem::KeyExists(string key) {
-    string data;
-    ifstream file(folderPath);
+bool SaveSystem::KeyExists(std::string key) {
+    std::string data;
+    std::ifstream file("savedData.txt");
     if (file.is_open())
     {
         while (!file.eof())
@@ -23,12 +22,12 @@ bool SaveSystem::KeyExists(string key) {
         return false;
     }
 }
-bool SaveSystem::SaveExists(string key) {
+bool SaveSystem::SaveExists(std::string key) {
     return KeyExists(key);
 }
-string SaveSystem::GetValue(string key) {
-    string data;
-    ifstream file(folderPath);
+std::string SaveSystem::GetValue(std::string key) {
+    std::string data;
+    std::ifstream file("savedData.txt");
     if (file.is_open())
     {
         while (!file.eof())
@@ -45,13 +44,13 @@ string SaveSystem::GetValue(string key) {
     }
 }
 template <typename T>
-T SaveSystem::Load(string key)
+T SaveSystem::Load(std::string key)
 {
     if (KeyExists(key)) {
-        string data = GetValue(key);
+        std::string data = GetValue(key);
         T ret;
-        istringstream iss(data);
-        if (data.find("0x") != std::string::npos)
+        istd::stringstream iss(data);
+        if (data.find("0x") != std::std::string::npos)
         {
             iss >> hex >> ret;
         }
@@ -71,7 +70,7 @@ T SaveSystem::Load(string key)
 }
 
 template <typename T>
-void SaveSystem::Save(T data, string key)
+void SaveSystem::Save(T data, std::string key)
 {
     if (!KeyExists(key)) {
         ofstream file;
