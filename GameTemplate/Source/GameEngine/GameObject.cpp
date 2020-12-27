@@ -5,6 +5,11 @@ GameObject::GameObject() {
 	isActive = true;
 	GameObjectManager::GetInstance().AddGameObject(this);
 }
+GameObject::GameObject(string tag) {
+	isActive = true;
+	setTag(tag);
+	GameObjectManager::GetInstance().AddGameObject(this);
+}
 
 void GameObject::addCollider(float radius) {
 	if (radius < 0)

@@ -3,7 +3,6 @@
 #include <fstream>
 #include <thread>
 #include <sstream>
-
 bool SaveSystem::KeyExists(std::string key) {
     std::string data;
     std::ifstream file("savedData.txt");
@@ -49,14 +48,14 @@ T SaveSystem::Load(std::string key)
     if (KeyExists(key)) {
         std::string data = GetValue(key);
         T ret;
-        istd::stringstream iss(data);
-        if (data.find("0x") != std::std::string::npos)
+        std::stringstream iss(data);
+        if (data.find("0x") != std::string::npos)
         {
-            iss >> hex >> ret;
+            iss >> std::hex >> ret;
         }
         else
         {
-            iss >> dec >> ret;
+            iss >> std::dec >> ret;
         }
 
         if (iss.fail())
@@ -73,8 +72,8 @@ template <typename T>
 void SaveSystem::Save(T data, std::string key)
 {
     if (!KeyExists(key)) {
-        ofstream file;
-        file.open(folderPath, ios_base::app);
+        std::ofstream file;
+        file.open("savedData.txt", std::ios_base::app);
         file << key + ':';
         file << data;
         file << '\n';

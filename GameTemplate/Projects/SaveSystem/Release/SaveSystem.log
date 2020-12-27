@@ -1,2 +1,2 @@
-﻿MSVCRT.lib(exe_main.obj) : error LNK2001: unresolved external symbol _main
-C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\SaveSystem.exe : fatal error LNK1120: 1 unresolved externals
+﻿  SaveSystem.cpp
+  SaveSystem.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\SaveSystem.lib

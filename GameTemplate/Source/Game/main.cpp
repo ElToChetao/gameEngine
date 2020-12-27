@@ -2,48 +2,62 @@
 #include "ManagerOfManagers.h"
 #include "SaveSystem.h"
 
-class Go : public GameObject {
-private:
-	static const int speed = 200;
+class Wall : public GameObject {
 public:
-	Go(Vector2 startPos) :GameObject() {
-		addSprite("../../Media/Sprites/dot.bmp");
+	Wall(Vector2 startPos, Vector2 size) :GameObject() {
+		transform.position.x = startPos.x;
+		transform.position.y = startPos.y;
+		transform.size.x = size.x;
+		transform.size.y = size.y;
+
+		addCollider();
+	};
+};
+class Paddle : public GameObject {
+private:
+	float speed = 200;
+public:
+	string axis;
+	Paddle(Vector2 startPosition, string spritePath, string axis) {
+		addSprite(spritePath);
+		setTag("paddle");
+
+		transform.position.x = startPosition.x;
+		transform.position.y = startPosition.y;
+
+		transform.size.x = 32;
+		transform.size.y = 32;
+
+		addCollider();
+		this->axis = axis;
+	}
+	void update() override {
+		translate(Vector2(0, 1) * InputManager::GetInstance().GetAxis(axis) * speed);
+	}
+};
+class Ball : public GameObject {
+private:
+	Vector2 direction = Vector2::ONE;
+public:
+	Ball(Vector2 startPos) :GameObject() {
+		addSprite("../../Media/Sprites/ball.png");
 		addCollider(10);
 
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
-	};
-
-	void update() override{
-		move();
 	}
-
-	void onCollision(GameObject *other) override {
-		destroy(other);
+	void update() override{
+		translate(direction * 150);
+	}
+	void onCollision(GameObject* other) override {
+		if (other->tag == "vertical" || other->tag == "paddle") {
+			direction.x *= -1;
+		}
+		else if (other->tag == "horizontal") {
+			direction.y *= -1;
+		}
 		AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
 	}
-
-	void move()
-	{
-		float hInput = InputManager::GetInstance().GetAxis("Horizontal");
-		float vInput = InputManager::GetInstance().GetAxis("Vertical");
-		
-		Vector2 vec(hInput, vInput);
-		translate(vec * speed);
-	}
-};
-class Wall : public GameObject {
-public:
-	Wall(Vector2 startPos) :GameObject() {
-		addSprite("../../Media/Sprites/Wall.png");
-		addCollider();
-
-		transform.position.x = startPos.x;
-		transform.position.y = startPos.y;
-		transform.size.x = 30;
-		transform.size.y = 30;
-
-	};
 };
 
 int main( int argc, char* args[] )
@@ -57,14 +71,20 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-
-		//bool b = SaveSystem::KeyExists("fornite");
 		// gameObject instances
-		Go go(Vector2(200, 300));
-		Wall wall(Vector2(100, 100));
-		Wall wall2(Vector2(200, 100));
-		Wall wall3(Vector2(100, 200));
-		Wall wall4(Vector2(100, 300));
+		Ball ball(Vector2(200, 200));
+		Wall wall(Vector2(10, 20), Vector2(30, 400));
+		Wall wall1(Vector2(10, 20), Vector2(400, 30));
+		Wall wall2(Vector2(400, 20), Vector2(30, 400));
+		Wall wall3(Vector2(10, 300), Vector2(400, 30));
+
+		wall.setTag("vertical");
+		wall1.setTag("horizontal");
+		wall2.setTag("vertical");
+		wall3.setTag("horizontal");
+
+		Paddle leftPaddle(Vector2(30, 200), "../../Media/Sprites/paddleLeft.png", "Vertical");
+		Paddle rightPaddle(Vector2(350, 200), "../../Media/Sprites/paddleRight.png", "Vertical Arrows");
 
 		bool quit = false;
 
