@@ -5,8 +5,13 @@
 void InputManager::Update(void)
 {
   mCurrentKeyStates = SDL_GetKeyboardState(NULL);
+  SDL_GetMouseState(&mouseX, &mouseY);
 }
 /*****************************************************************************/
+
+Vector2 InputManager::GetMousePosition() {
+	return Vector2(mouseX, mouseY);
+}
 
 bool InputManager::GetKey(int scanCode)
 {
@@ -18,7 +23,15 @@ bool InputManager::GetKey(int scanCode)
 float InputManager::GetAxis(string axis)
 {
 	float input = 0;
-	if (axis == "Horizontal")
+	if (axis == "Horizontal Arrows")
+	{
+		input = mCurrentKeyStates[SDL_SCANCODE_A] - mCurrentKeyStates[SDL_SCANCODE_D];
+	}
+	else if (axis == "Vertical Arrows")
+	{
+		input = mCurrentKeyStates[SDL_SCANCODE_S] - mCurrentKeyStates[SDL_SCANCODE_W];
+	}
+	else if (axis == "Horizontal")
 	{
 		input = mCurrentKeyStates[SDL_SCANCODE_RIGHT] - mCurrentKeyStates[SDL_SCANCODE_LEFT];
 	}
