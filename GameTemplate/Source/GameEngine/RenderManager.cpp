@@ -1,5 +1,6 @@
 #include "RenderManager.h"
 #include "GameObjectManager.h"
+#include <SDL_ttf.h>
 
 /*****************************************************************************/
 
@@ -95,6 +96,7 @@ void RenderManager::Update()
             go[i]->texture->render(go[i]->transform.position.x, go[i]->transform.position.y);
         }
     }
+    DrawText("MARYWE");
 
     //render screen
     SDL_RenderPresent(GetRenderer());
@@ -122,6 +124,14 @@ LTexture* RenderManager::GetSprite(string spritePath)
         printf("Sprite loaded succesfully");
         return sprites[index];
     }
+}
+
+void RenderManager::DrawText(string content)
+{
+    SDL_Color textColor = { 255, 255, 255, 0 };
+    //TTF_Font* font = TTF_OpenFont(NULL, 24);
+   /* SDL_Surface* textSurface = TTF_RenderText_Solid(NULL, content.c_str(), textColor);
+    SDL_Texture* text = SDL_CreateTextureFromSurface(GetRenderer(), textSurface);*/
 }
 
 /*****************************************************************************/
