@@ -3,6 +3,7 @@
 #include <fstream>
 #include <thread>
 #include <sstream>
+
 bool SaveSystem::KeyExists(std::string key) {
     std::string data;
     std::ifstream file("savedData.txt");
@@ -21,9 +22,11 @@ bool SaveSystem::KeyExists(std::string key) {
         return false;
     }
 }
+
 bool SaveSystem::SaveExists(std::string key) {
     return KeyExists(key);
 }
+
 std::string SaveSystem::GetValue(std::string key) {
     std::string data;
     std::ifstream file("savedData.txt");
@@ -42,6 +45,7 @@ std::string SaveSystem::GetValue(std::string key) {
         return "";
     }
 }
+
 template <typename T>
 T SaveSystem::Load(std::string key)
 {

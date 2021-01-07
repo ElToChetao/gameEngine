@@ -35,10 +35,14 @@ public:
 		translate(Vector2(0, 1) * InputManager::GetInstance().GetAxis(axis) * speed);
 	}
 };
+
 class Ball : public GameObject {
+
 private:
+
 	Vector2 direction = Vector2::ONE;
 public:
+
 	Ball(Vector2 startPos) :GameObject() {
 		addSprite("../../Media/Sprites/ball.png");
 		addCollider(10);
@@ -46,10 +50,13 @@ public:
 		transform.position.x = startPos.x;
 		transform.position.y = startPos.y;
 	}
+
 	void update() override{
 		translate(direction * 150);
 	}
-	void onCollision(GameObject* other) override {
+
+	void onCollisionEnter(GameObject* other) override {
+
 		if (other->tag == "vertical" || other->tag == "paddle") {
 			direction.x *= -1;
 		}

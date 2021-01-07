@@ -1,6 +1,17 @@
-﻿  RenderManager.cpp
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(94,23): warning C4018: '<': signed/unsigned mismatch
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(96,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\gameEngineRepo\gameEngine\GameTemplate\Source\GameEngine\RenderManager.cpp(107,23): warning C4018: '<': signed/unsigned mismatch
-  GameEngine.vcxproj -> C:\gameEngineRepo\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
+﻿  PhysicsManager.cpp
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(8,20): warning C4018: '<': no coinciden signed/unsigned
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(10,26): warning C4018: '<': no coinciden signed/unsigned
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(72,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(76,90): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(76,73): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(76,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(76,39): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(105,35): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(109,38): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(113,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(117,35): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(121,38): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(125,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(129,53): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Git\gameEngine\GameTemplate\Source\GameEngine\PhysicsManager.cpp(129,37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  GameEngine.vcxproj -> D:\Git\gameEngine\GameTemplate\Projects\Release\GameEngine.lib
