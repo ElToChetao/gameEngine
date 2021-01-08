@@ -27,7 +27,7 @@ public:
 	double distanceSquared(int x1, int y1, int x2, int y2);
 
 	bool CheckCollisions(GameObject* go, GameObject* other);
-	GameObject* CheckSphere (Vector2 position, float radius);
+	GameObject* CheckSphere (Vector2 position, float radius, GameObject* self);
 
 	void UpdateState(GameObject* go, bool collision, GameObject* go2);
 

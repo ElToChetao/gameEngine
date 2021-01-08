@@ -177,12 +177,12 @@ bool PhysicsManager::CheckRectCircleCollisions(GameObject* rect, Vector2 centerC
 	return distanceSquared(centerCircle.x, centerCircle.y, testX, testY) < (radius * radius);
 }
 
-GameObject* PhysicsManager::CheckSphere(Vector2 position, float radius)
+GameObject* PhysicsManager::CheckSphere(Vector2 position, float radius, GameObject* self = NULL)
 {
 	vector<GameObject*> go = GameObjectManager::GetInstance().GetGameObjects();
 	
 	for (int i = 0; i < go.size(); i++) {
-		if (go[i]->collider != NULL) 
+		if (go[i] != self && go[i]->collider != NULL)
 		{
 			if (go[i]->collider->isRect)
 			{
@@ -200,6 +200,5 @@ GameObject* PhysicsManager::CheckSphere(Vector2 position, float radius)
 			}
 		}
 	}
-
 	return NULL;
 }

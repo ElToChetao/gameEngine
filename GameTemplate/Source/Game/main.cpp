@@ -52,18 +52,22 @@ public:
 	}
 
 	void update() override{
-		translate(direction * 150);
+		translate(direction * 100);
+
+		GameObject* go = PhysicsManager::GetInstance().CheckSphere(getCenterPosition(), collider->radius, this);
+		if (go != NULL) {
+			if (go->tag == "vertical" || go->tag == "paddle") {
+				direction.x *= -1;
+			}
+			else if (go->tag == "horizontal") {
+				direction.y *= -1;
+			}
+			AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
+		}
 	}
 
 	void onCollisionEnter(GameObject* other) override {
-
-		if (other->tag == "vertical" || other->tag == "paddle") {
-			direction.x *= -1;
-		}
-		else if (other->tag == "horizontal") {
-			direction.y *= -1;
-		}
-		AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
+		
 	}
 };
 
