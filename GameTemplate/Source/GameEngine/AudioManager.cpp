@@ -23,13 +23,14 @@ void AudioManager::Update()
  
 }
 
-void AudioManager::PlaySound(string soundPath)
+void AudioManager::PlaySound(string soundPath, float volume)
 {
     Audio* audio = SearchSound(soundPath);
     if (audio == NULL)
     {
         audio = NewAudio(soundPath);
     }
+    audio->sound->volume = volume;
     audio->Play();
 }
 
@@ -78,7 +79,6 @@ AudioManager::~AudioManager()
         Mix_FreeChunk(sounds[i]->sound);
     }
     Mix_FreeMusic(backgroundMusic);
-
 
     //Quit SDL subsystems
     Mix_Quit();

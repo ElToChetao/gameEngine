@@ -4,7 +4,9 @@
 
 TimeManager::TimeManager()
 {
-
+	deltaTime = 0;
+	timeScale = 1;
+	currentTime = 0;
 }
 
 TimeManager::~TimeManager()
@@ -13,8 +15,7 @@ TimeManager::~TimeManager()
 }
 
 void TimeManager::Init() {
-	deltaTime = 0;
-	currentTime = 0;
+	
 }
 
 void TimeManager::Update() {
@@ -25,10 +26,21 @@ void TimeManager::Update() {
 
 float TimeManager::getDeltaTime()
 {
-	return (deltaTime/1000);
+	return (deltaTime/1000) * timeScale;
+}
+float TimeManager::getUnscaledDeltaTime() {
+	return (deltaTime / 1000);
 }
 
 int TimeManager::getCurrentTime()
 {
 	return currentTime;
+}
+
+void TimeManager::setTimeScale(float scale)
+{
+	if (scale < 0) {
+		scale = 0;
+	}
+	timeScale = scale;
 }

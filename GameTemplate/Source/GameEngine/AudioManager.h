@@ -24,7 +24,7 @@ public:
 	Audio* SearchSound(string soundPath);
 	Audio* NewAudio(string soundPath);
 
-	void PlaySound(string soundPath);
+	void PlaySound(string soundPath, float volume = 100);
 	void SetBackgroundMusic(string soundPath);
 	void StopMusic();
 };

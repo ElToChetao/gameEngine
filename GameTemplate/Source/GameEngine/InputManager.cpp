@@ -23,19 +23,19 @@ bool InputManager::GetKey(int scanCode)
 float InputManager::GetAxis(string axis)
 {
 	float input = 0;
-	if (axis == "Horizontal Arrows")
+	if (axis == "Horizontal")
 	{
 		input = mCurrentKeyStates[SDL_SCANCODE_A] - mCurrentKeyStates[SDL_SCANCODE_D];
 	}
-	else if (axis == "Vertical Arrows")
+	else if (axis == "Vertical")
 	{
 		input = mCurrentKeyStates[SDL_SCANCODE_S] - mCurrentKeyStates[SDL_SCANCODE_W];
 	}
-	else if (axis == "Horizontal")
+	else if (axis == "Horizontal Arrows")
 	{
 		input = mCurrentKeyStates[SDL_SCANCODE_RIGHT] - mCurrentKeyStates[SDL_SCANCODE_LEFT];
-	}
-	else if (axis == "Vertical")
+	} 
+	else if (axis == "Vertical Arrows")
 	{
 		input = mCurrentKeyStates[SDL_SCANCODE_DOWN] - mCurrentKeyStates[SDL_SCANCODE_UP];
 	}

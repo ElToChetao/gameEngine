@@ -1,4 +1,9 @@
 #include "ManagerOfManagers.h"
+
+ManagerOfManagers::ManagerOfManagers() {
+	gameRunning = true;
+}
+
 bool ManagerOfManagers::Init(void) {
 	// init all managers
 	TimeManager::CreateSingleton();
@@ -27,6 +32,16 @@ void ManagerOfManagers::InputUpdate() {
 }
 
 void ManagerOfManagers::Update(void) {
+	SDL_Event e;
+	while (SDL_PollEvent(&e) != 0)
+	{
+		//User requests quit
+		if (e.type == SDL_QUIT)
+		{
+			Exit();
+		}
+	}
+
 	// update all managers
 	thread inputThread(&ManagerOfManagers::InputUpdate, this);
 	thread physicThread(&ManagerOfManagers::PhysicUpdate, this);
@@ -40,9 +55,10 @@ void ManagerOfManagers::Update(void) {
 	audioThread.join();
 }
 
+void ManagerOfManagers::Exit() {
+	gameRunning = false;
+}
 void ManagerOfManagers::Destroy(void) {
-	// destroy all manager
-	AudioManager::GetInstance().
 	AudioManager::DestroySingleton();
 	RenderManager::DestroySingleton();
 	GameObjectManager::DestroySingleton();
@@ -50,4 +66,5 @@ void ManagerOfManagers::Destroy(void) {
 	InputManager::DestroySingleton();
 	TimeManager::DestroySingleton();
 	ManagerOfManagers::DestroySingleton();
+	exit(0);
 }

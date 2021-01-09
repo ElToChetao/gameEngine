@@ -13,13 +13,16 @@ class ManagerOfManagers :public Singleton<ManagerOfManagers>
 {
 	friend class Singleton<ManagerOfManagers>;
 public:
-	ManagerOfManagers() {};
+	bool gameRunning;
+	ManagerOfManagers();
 
 	bool Init(void);
 
 	void PhysicUpdate();
 	void InputUpdate();
 	void Update(void);
+	
+	void Exit();
 
 	void Destroy(void);
 };

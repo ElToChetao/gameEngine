@@ -1,6 +1,8 @@
 #pragma once
 #include "ManagerOfManagers.h"
 #include "SaveSystem.h"
+#include <algorithm>
+		
 
 class Wall : public GameObject {
 public:
@@ -33,13 +35,14 @@ public:
 	}
 	void update() override {
 		translate(Vector2(0, 1) * InputManager::GetInstance().GetAxis(axis) * speed);
+		transform.position.y = transform.position.y < 30 ? 30 : (transform.position.y > RenderManager::GetInstance().SCREEN_HEIGHT - 60) ?
+			RenderManager::GetInstance().SCREEN_HEIGHT - 60 : transform.position.y;
 	}
 };
 
 class Ball : public GameObject {
 
 private:
-
 	Vector2 direction = Vector2::ONE;
 public:
 
@@ -52,22 +55,27 @@ public:
 	}
 
 	void update() override{
-		translate(direction * 100);
+		translate(direction * 120);
+
+		if (transform.position.x < 0 || transform.position.x > RenderManager::GetInstance().SCREEN_WIDTH - transform.size.x)
+		{
+			//direction.x *= -1;
+			//AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav", 20);
+			//ManagerOfManagers::GetInstance().Exit();
+			destroy(this);
+		}
+		if (transform.position.y < 0 || transform.position.y > RenderManager::GetInstance().SCREEN_HEIGHT - transform.size.y){
+			direction.y *= -1;
+			AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav", 20);
+		}
 
 		GameObject* go = PhysicsManager::GetInstance().CheckSphere(getCenterPosition(), collider->radius, this);
 		if (go != NULL) {
-			if (go->tag == "vertical" || go->tag == "paddle") {
+			if (go->tag == "paddle") {
 				direction.x *= -1;
 			}
-			else if (go->tag == "horizontal") {
-				direction.y *= -1;
-			}
-			AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav");
+			AudioManager::GetInstance().PlaySound("../../Media/Sounds/1.wav", 20);
 		}
-	}
-
-	void onCollisionEnter(GameObject* other) override {
-		
 	}
 };
 
@@ -82,44 +90,20 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-		// gameObject instances
+		// GameObject instances
 		Ball ball(Vector2(200, 200));
-		Wall wall(Vector2(10, 20), Vector2(30, 400));
-		Wall wall1(Vector2(10, 20), Vector2(400, 30));
-		Wall wall2(Vector2(400, 20), Vector2(30, 400));
-		Wall wall3(Vector2(10, 300), Vector2(400, 30));
 
-		wall.setTag("vertical");
-		wall1.setTag("horizontal");
-		wall2.setTag("vertical");
-		wall3.setTag("horizontal");
-
-		Paddle leftPaddle(Vector2(30, 200), "../../Media/Sprites/paddleLeft.png", "Vertical");
-		Paddle rightPaddle(Vector2(350, 200), "../../Media/Sprites/paddleRight.png", "Vertical Arrows");
-
-		bool quit = false;
-
-		//Event handler
-		SDL_Event e;
+		Paddle leftPaddle(Vector2(30, RenderManager::GetInstance().SCREEN_HEIGHT / 2), "../../Media/Sprites/paddleLeft.png", "Vertical");
+		Paddle rightPaddle(Vector2(RenderManager::GetInstance().SCREEN_WIDTH - 60, RenderManager::GetInstance().SCREEN_HEIGHT / 2), "../../Media/Sprites/paddleRight.png", "Vertical Arrows");
 
 		//While application is running
-		while( !quit )
+		while( ManagerOfManagers::GetInstance().gameRunning )
 		{
-			//Handle events on queue
-			while( SDL_PollEvent( &e ) != 0 )
-			{
-				//User requests quit
-				if( e.type == SDL_QUIT )
-				{
-					quit = true;
-				}
-			}
-
 			// update all managers and scripts
 			ManagerOfManagers::GetInstance().Update();
 		}
 	}
-	// free memory and close program
+
+	// Free memory and close program
 	ManagerOfManagers::GetInstance().Destroy();
-	return 0;
 }

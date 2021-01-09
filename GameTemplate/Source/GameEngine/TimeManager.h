@@ -9,6 +9,7 @@ class TimeManager :public Singleton<TimeManager>
 
 private:
 	float deltaTime;
+	float timeScale;
 	int currentTime;
 
 	TimeManager();
@@ -18,5 +19,8 @@ public:
 	void Update(void);
 
 	float getDeltaTime();
+	float getUnscaledDeltaTime();
 	int getCurrentTime();
+
+	void setTimeScale(float scale);
 };

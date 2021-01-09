@@ -41,8 +41,6 @@ class RenderManager :public Singleton<RenderManager>
 
 		LTexture* GetSprite(string spritePath);
 
-		void DrawText(string content);
-
 		SDL_Window* GetWindow() { return mWindow; }
 
 		SDL_Renderer* GetRenderer() { return mRenderer; }
