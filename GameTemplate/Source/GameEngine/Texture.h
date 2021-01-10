@@ -50,6 +50,8 @@ public:
   int getWidth();
   int getHeight();
 
+  bool loadFromRenderedText(std::string textureText, SDL_Color textColor);
+
   //Image path
   std::string spritePath;
 };

@@ -12,6 +12,7 @@ class GameObjectManager :public Singleton<GameObjectManager>
 	friend class Singleton<GameObjectManager>;
 private:
 	vector<GameObject*> gameObjects;
+	vector<GameObject*> managers;
 	GameObjectManager();
 public:
 	vector<GameObject*> GetGameObjects();

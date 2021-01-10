@@ -3,13 +3,22 @@
 GameObjectManager::GameObjectManager() {}
 
 vector<GameObject*> GameObjectManager::GetGameObjects() {
-	return gameObjects;
+	vector<GameObject*> activeObjects;
+	for (int i = 0; i < gameObjects.size(); i++) {
+		if (gameObjects[i]->isActive) {
+			activeObjects.push_back(gameObjects[i]);
+		}
+	}
+	return activeObjects;
 }
 
 void GameObjectManager::Init() {
 }
 
 void GameObjectManager::Update() {
+	for (int i = 0; i < managers.size(); i++) {
+		managers[i]->update();
+	}
 	for (int i = 0; i < gameObjects.size(); i++) {
 		gameObjects[i]->update();
 	}
