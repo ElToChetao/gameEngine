@@ -15,7 +15,6 @@ public:
 
 	bool isActive;
 	
-	string name;
 	string tag;
 
 	LTexture* texture  = NULL;

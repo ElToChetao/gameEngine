@@ -35,3 +35,11 @@ void GameObjectManager::AddGameObject(GameObject* go) {
 void GameObjectManager::RemoveGameObject(GameObject* go) {
 	gameObjects.erase(remove(gameObjects.begin(), gameObjects.end(), go), gameObjects.end());
 }
+
+void GameObjectManager::AddGameObject(Manager* go) {
+	managers.push_back(go);
+}
+
+void GameObjectManager::RemoveGameObject(Manager* go) {
+	managers.erase(remove(managers.begin(), managers.end(), go), managers.end());
+}
